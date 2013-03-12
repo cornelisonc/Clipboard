@@ -143,12 +143,12 @@
 		A7D0545716DFDC53007142C1 /* Clipboard */ = {
 			isa = PBXGroup;
 			children = (
-				A70A8C7916EFA6A800DBA1E4 /* View Controllers */,
-				A70A8C7816EFA6A200DBA1E4 /* Model */,
-				A70A8C7716EFA69C00DBA1E4 /* View */,
 				A7D0546016DFDC53007142C1 /* ccAppDelegate.h */,
 				A7D0546116DFDC53007142C1 /* ccAppDelegate.m */,
+				A70A8C7816EFA6A200DBA1E4 /* Model */,
 				A7D0545816DFDC53007142C1 /* Supporting Files */,
+				A70A8C7716EFA69C00DBA1E4 /* View */,
+				A70A8C7916EFA6A800DBA1E4 /* View Controllers */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";

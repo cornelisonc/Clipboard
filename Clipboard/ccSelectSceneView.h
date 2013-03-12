@@ -10,4 +10,8 @@
 
 @interface ccSelectSceneView : UIView
 
+@property (nonatomic, strong) UIImageView *logoImageView;
+@property (nonatomic, strong) UITableView *selectSceneTableView;
+@property (nonatomic, strong) id owner;
+
 @end
