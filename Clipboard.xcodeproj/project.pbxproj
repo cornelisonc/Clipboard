@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */; };
 		A7D0545216DFDC53007142C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D0545116DFDC53007142C1 /* UIKit.framework */; };
 		A7D0545416DFDC53007142C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D0545316DFDC53007142C1 /* Foundation.framework */; };
 		A7D0545616DFDC53007142C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D0545516DFDC53007142C1 /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A70A8C7C16EFA7D200DBA1E4 /* ccSelectSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneView.h; sourceTree = "<group>"; };
+		A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneView.m; sourceTree = "<group>"; };
 		A7D0544E16DFDC53007142C1 /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D0545116DFDC53007142C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7D0545316DFDC53007142C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +85,8 @@
 		A70A8C7716EFA69C00DBA1E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A70A8C7C16EFA7D200DBA1E4 /* ccSelectSceneView.h */,
+				A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			files = (
 				A7D0545E16DFDC53007142C1 /* main.m in Sources */,
 				A7D0546216DFDC53007142C1 /* ccAppDelegate.m in Sources */,
+				A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
