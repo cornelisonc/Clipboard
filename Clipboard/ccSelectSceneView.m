@@ -24,7 +24,7 @@
 - (UIImageView *)logoImageView
 {
     if (!_logoImageView) {
-        _logoImageView = [[UIImageView alloc] init0];
+        _logoImageView = [[UIImageView alloc] init];
         
         [_logoImageView setFrame:CGRectMake(0, 0, 320, 415)];
         
