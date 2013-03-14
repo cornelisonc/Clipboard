@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ccSelectSceneView.h"
 
 @interface ccSelectSceneViewController : UIViewController
+
+@property (nonatomic, strong) ccSelectSceneView *selectSceneView;
 
 @end

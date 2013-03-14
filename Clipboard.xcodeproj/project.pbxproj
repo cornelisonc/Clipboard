@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A70855F916F24B5B007EDF66 /* ccClipboard.m */; };
 		A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */; };
 		A70A8C8116EFA8D400DBA1E4 /* ccSelectSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70A8C8016EFA8D400DBA1E4 /* ccSelectSceneViewController.m */; };
 		A7D0545216DFDC53007142C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D0545116DFDC53007142C1 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A70855F816F24B5B007EDF66 /* ccClipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccClipboard.h; sourceTree = "<group>"; };
+		A70855F916F24B5B007EDF66 /* ccClipboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccClipboard.m; sourceTree = "<group>"; };
 		A70A8C7C16EFA7D200DBA1E4 /* ccSelectSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneView.h; sourceTree = "<group>"; };
 		A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneView.m; sourceTree = "<group>"; };
 		A70A8C7F16EFA8D400DBA1E4 /* ccSelectSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneViewController.h; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 		A70A8C7816EFA6A200DBA1E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A70855F816F24B5B007EDF66 /* ccClipboard.h */,
+				A70855F916F24B5B007EDF66 /* ccClipboard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				A7D0546216DFDC53007142C1 /* ccAppDelegate.m in Sources */,
 				A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */,
 				A70A8C8116EFA8D400DBA1E4 /* ccSelectSceneViewController.m in Sources */,
+				A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

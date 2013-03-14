@@ -7,6 +7,8 @@
 //
 
 #import "ccAppDelegate.h"
+#import "ccSelectSceneViewController.h"
+
 
 @implementation ccAppDelegate
 
@@ -14,8 +16,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+	// Out window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
+	// as the root controller for our window.
+	ccSelectSceneViewController *celebirdDetailViewController = [[ccSelectSceneViewController alloc] init];
+	[self.window setRootViewController:celebirdDetailViewController];
+	
     return YES;
 }
 
