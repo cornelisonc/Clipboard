@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7616F793C2005C9788 /* ccFireInstance.m */; };
+		49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */; };
 		A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A70855F916F24B5B007EDF66 /* ccClipboard.m */; };
 		A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */; };
 		A70A8C8116EFA8D400DBA1E4 /* ccSelectSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70A8C8016EFA8D400DBA1E4 /* ccSelectSceneViewController.m */; };
@@ -37,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49E5EA7516F793C2005C9788 /* ccFireInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireInstance.h; sourceTree = "<group>"; };
+		49E5EA7616F793C2005C9788 /* ccFireInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFireInstance.m; sourceTree = "<group>"; };
+		49E5EA7816F793DF005C9788 /* ccInstanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccInstanceProvider.h; sourceTree = "<group>"; };
+		49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccInstanceProvider.m; sourceTree = "<group>"; };
 		A70855F816F24B5B007EDF66 /* ccClipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccClipboard.h; sourceTree = "<group>"; };
 		A70855F916F24B5B007EDF66 /* ccClipboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccClipboard.m; sourceTree = "<group>"; };
 		A70A8C7C16EFA7D200DBA1E4 /* ccSelectSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneView.h; sourceTree = "<group>"; };
@@ -102,6 +108,10 @@
 			children = (
 				A70855F816F24B5B007EDF66 /* ccClipboard.h */,
 				A70855F916F24B5B007EDF66 /* ccClipboard.m */,
+				49E5EA7516F793C2005C9788 /* ccFireInstance.h */,
+				49E5EA7616F793C2005C9788 /* ccFireInstance.m */,
+				49E5EA7816F793DF005C9788 /* ccInstanceProvider.h */,
+				49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -306,6 +316,8 @@
 				A70A8C7E16EFA7D200DBA1E4 /* ccSelectSceneView.m in Sources */,
 				A70A8C8116EFA8D400DBA1E4 /* ccSelectSceneViewController.m in Sources */,
 				A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */,
+				49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */,
+				49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
