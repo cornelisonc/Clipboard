@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */; };
 		49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7616F793C2005C9788 /* ccFireInstance.m */; };
 		49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */; };
 		A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A70855F916F24B5B007EDF66 /* ccClipboard.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49468CE616F7E1E600D09587 /* ccInstanceLogUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccInstanceLogUploader.h; sourceTree = "<group>"; };
+		49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccInstanceLogUploader.m; sourceTree = "<group>"; };
 		49E5EA7516F793C2005C9788 /* ccFireInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireInstance.h; sourceTree = "<group>"; };
 		49E5EA7616F793C2005C9788 /* ccFireInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFireInstance.m; sourceTree = "<group>"; };
 		49E5EA7816F793DF005C9788 /* ccInstanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccInstanceProvider.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				49E5EA7616F793C2005C9788 /* ccFireInstance.m */,
 				49E5EA7816F793DF005C9788 /* ccInstanceProvider.h */,
 				49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */,
+				49468CE616F7E1E600D09587 /* ccInstanceLogUploader.h */,
+				49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				A70855FA16F24B5B007EDF66 /* ccClipboard.m in Sources */,
 				49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */,
 				49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */,
+				49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
