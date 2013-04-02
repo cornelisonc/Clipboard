@@ -18,10 +18,11 @@
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     
-	// Out window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
+	// Our window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
 	// as the root controller for our window.
-	ccSelectSceneViewController *celebirdDetailViewController = [[ccSelectSceneViewController alloc] init];
-	[self.window setRootViewController:celebirdDetailViewController];
+	ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:selectSceneViewController];
+	[self.window setRootViewController:navController];
 	
     return YES;
 }
