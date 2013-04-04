@@ -18,7 +18,7 @@
 - (void)fetchInstance
 {
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
-	NSString *URLString = @"http://firefighters/boonecounty/autocad.json"; //not the real url, just placeholder
+	NSString *URLString = @"muitclipboard.herokuapp.com/api/v1/auto_cad_data.json"; //not the real url, just placeholder
 	NSURL *URL = [NSURL URLWithString:URLString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 	[NSURLConnection sendAsynchronousRequest:request queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -28,12 +28,12 @@
 
 - (void)parseInstanceWithData:(NSData *)data
 {
-	NSDictionary *dictionaryFromData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-	NSArray *instanceFromData = dictionaryFromData[@"instances"]; //this may be an incorrect assignment to @"instances"
+	NSArray *arrayFromData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+	//NSArray *instanceFromData = arrayFromData; //this may be an incorrect assignment to @"instances"
 	
 	
      NSMutableArray *arrayToSend = [NSMutableArray array];
-    	for (NSDictionary *dictionary in instanceFromData) {
+    	for (NSDictionary *dictionary in arrayFromData) {
 		ccFireInstance *instance = [[ccFireInstance alloc] initWithDictionary:dictionary];
 		[arrayToSend addObject:instance];
 	}

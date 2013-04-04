@@ -31,7 +31,8 @@
         _callback = FireInstanceDictionary[@"callback"];
         _dispatcher = FireInstanceDictionary[@"dispatcher"];
         _callTaker = FireInstanceDictionary[@"callTaker"];
-        _dispO = FireInstanceDictionary[@"disp0"];
+        _callType = FireInstanceDictionary[@"callType"];
+        _dispPosition = FireInstanceDictionary[@"dispPosition"];
         _methAlarm = FireInstanceDictionary[@"methAlarm"];
         _incidentDateTime = FireInstanceDictionary[@"incidentDateTime"];
         _onSceneDateTime = FireInstanceDictionary[@"onSceneDateTime"];
