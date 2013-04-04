@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ccGridViewController.h"
+#import "ccSelectSceneViewController.h"
+
 
 @interface ccSceneSplitViewController : UISplitViewController
 
