@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         
+        ccGridViewController *gridViewController = [[ccGridViewController alloc] init];
         
         
     }
