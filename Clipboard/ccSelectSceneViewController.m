@@ -78,7 +78,7 @@
 
 #pragma mark    - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -89,7 +89,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
-
+*/
 
 
 @end

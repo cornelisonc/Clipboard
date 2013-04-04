@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ccGridView.h"
 
 @interface ccGridViewController : UIViewController
+
+@property (nonatomic, strong) ccGridView *gridView;
 
 @end

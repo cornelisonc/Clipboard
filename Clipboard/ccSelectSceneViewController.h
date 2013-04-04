@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ccSelectSceneView.h"
-#import "ccSceneSplitViewController.h"
 #import "ccSelectSceneCell.h"
 
 @interface ccSelectSceneViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
@@ -18,6 +17,5 @@
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) id owner;
-@property (nonatomic, strong) ccSceneSplitViewController *detailViewController;
 
 @end

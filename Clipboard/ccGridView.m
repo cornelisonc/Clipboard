@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self addSubview:self.gridView];
     }
     return self;
 }
@@ -27,5 +28,21 @@
     // Drawing code
 }
 */
+
+- (UIView *)gridView
+{
+    if(!_gridView){
+        _gridView = [[UIView alloc] init];
+        
+        [_gridView setFrame:CGRectMake(320, 0, 320, [UIScreen mainScreen].bounds.size.height)];
+        
+        [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+        
+        [_gridView setBackgroundColor:[UIColor blueColor]];
+    }
+    
+    return _gridView;
+    
+}
 
 @end

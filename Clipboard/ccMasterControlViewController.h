@@ -1,5 +1,5 @@
 //
-//  ccGridView.h
+//  ccMasterControlViewController.h
 //  Clipboard
 //
 //  Created by William Cleeton on 4/4/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ccGridView : UIView
+@interface ccMasterControlViewController : UITableViewController
 
-@property (nonatomic, strong) UIView *gridView;
-@property (nonatomic, strong) id owner;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "ccAppDelegate.h"
-#import "ccSelectSceneViewController.h"
 
 
 @implementation ccAppDelegate
@@ -20,7 +19,9 @@
     
 	// Our window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
 	// as the root controller for our window.
-	//ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+	
+    //ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    
     ccSceneSplitViewController *sceneSplitViewController = [[ccSceneSplitViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
 	[self.window setRootViewController:navController];

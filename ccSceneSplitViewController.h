@@ -13,7 +13,7 @@
 
 @interface ccSceneSplitViewController : UISplitViewController
 
-@property (nonatomic, strong) UITabBarController *tabBarController;
-@property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, strong) ccGridViewController *gridViewController;
+
 
 @end
