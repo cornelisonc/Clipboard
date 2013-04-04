@@ -38,6 +38,30 @@
 @property (nonatomic, strong) NSString *caution;
 @property (nonatomic, strong) NSString *CntyFIPS;
 @property (nonatomic, strong) NSString *code;
+@property (nonatomic, strong) NSString *District;
+@property (nonatomic, strong) NSString *FDIF;
+@property (nonatomic, strong) NSString *IEMSNatureCode;
+@property (nonatomic, strong) NSString *EMSRespTransTo;
+@property (nonatomic, strong) NSString *incidentType;
+@property (nonatomic, strong) NSString *incidentNum;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *MDT;
+@property (nonatomic, strong) NSString *map;
+@property (nonatomic, strong) NSString *methodAlarm;
+@property (nonatomic, strong) NSString *onScene;
+@property (nonatomic, strong) NSString *patContactTime;
+@property (nonatomic, strong) NSString *onScene;
+
+
+
+
+
+
+
+
+
+
 
 
 //This took a long time to code
