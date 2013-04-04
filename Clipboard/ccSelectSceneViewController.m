@@ -14,6 +14,7 @@
 
 @implementation ccSelectSceneViewController
 
+/*
 - (void)loadView
 {
 
@@ -26,10 +27,14 @@
     self.logoImageView = selectSceneView.logoImageView;
 
     //Init the tableView
+    
     self.selectSceneTableView = selectSceneView.selectSceneTableView;
+    self.selectSceneTableView.delegate = self;
+    self.selectSceneTableView.dataSource = self;
     self.nameLabel = selectSceneView.nameLabel;
 	self.view = selectSceneView;
 }
+ */
 
 - (void)viewDidLoad
 {
@@ -37,16 +42,10 @@
     
 	// Do any additional setup after loading the view.
     static NSString *CellIdentifier = @"Cell";
-	[self.selectSceneTableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
+	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
     
     
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -54,7 +53,8 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    NSLog(@"numberOfSectionsInTableView");    return 1;
+    NSLog(@"numberOfSectionsInTableView");
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,13 +68,6 @@
     NSLog(@"tableview building cell");
     static NSString *CellIdentifier = @"Cell";
     ccSelectSceneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    if (cell == nil) {
-    
-        cell = [[ccSelectSceneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-    }
    
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
     cell.textLabel.text = [NSString  stringWithFormat:@"Cell Row #%d", [indexPath row]];

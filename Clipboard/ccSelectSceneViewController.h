@@ -11,12 +11,13 @@
 #import "ccSceneSplitViewController.h"
 #import "ccSelectSceneCell.h"
 
-@interface ccSelectSceneViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ccSelectSceneViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) ccSelectSceneView *selectSceneView;
 @property (nonatomic, strong) UITableView *selectSceneTableView;
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) id owner;
+@property (nonatomic, strong) ccSceneSplitViewController *detailViewController;
 
 @end
