@@ -33,7 +33,6 @@
         _callTaker = FireInstanceDictionary[@"callTaker"];
         _callType = FireInstanceDictionary[@"callType"];
         _dispPosition = FireInstanceDictionary[@"dispPosition"];
-        _methAlarm = FireInstanceDictionary[@"methAlarm"];
         _incidentDateTime = FireInstanceDictionary[@"incidentDateTime"];
         _onSceneDateTime = FireInstanceDictionary[@"onSceneDateTime"];
         _upgradeTime = FireInstanceDictionary[@"upgradeTime"];

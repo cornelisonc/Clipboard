@@ -27,7 +27,6 @@
 @property (nonatomic, strong) NSString *callTaker;
 @property (nonatomic, strong) NSString *callType;
 @property (nonatomic, strong) NSString *dispPosition;
-@property (nonatomic, strong) NSString *methAlarm;
 @property (nonatomic, strong) NSString *incidentDateTime;
 @property (nonatomic, strong) NSString *onSceneDateTime;
 @property (nonatomic, strong) NSString *upgradeTime;
