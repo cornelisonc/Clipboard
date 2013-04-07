@@ -49,7 +49,6 @@
 @property (nonatomic, strong) NSString *map;
 @property (nonatomic, strong) NSString *methodAlarm;
 @property (nonatomic, strong) NSString *onScene;
-@property (nonatomic, strong) NSString *patContactTime;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *prePlan;
 @property (nonatomic, strong) NSString *proQAFlag;
@@ -59,9 +58,9 @@
 @property (nonatomic, strong) NSString *tract;
 @property (nonatomic, strong) NSString *trucks;
 @property (nonatomic, strong) NSString *trucksColors;
-@property (nonatomic, strong) NSString *upgrade;
 @property (nonatomic, strong) NSString *zipCode;
 @property (nonatomic, strong) NSString *createdAtDateTime;
+@property (nonatomic, strong) NSString *updateAtDateTime;
 @property (nonatomic, strong) NSString *instanceId;
 
 
