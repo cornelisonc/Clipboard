@@ -7,6 +7,8 @@
 //
 
 #import "ccAppDelegate.h"
+#import "ccSceneSplitViewController.h"
+#import "ccGridViewController.h"
 
 
 @implementation ccAppDelegate
@@ -15,19 +17,25 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
     
 	// Our window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
 	// as the root controller for our window.
-	
-    //ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    
+	        
     ccSceneSplitViewController *sceneSplitViewController = [[ccSceneSplitViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
-	[self.window setRootViewController:navController];
+
+    ccGridViewController *gridViewController = [[ccGridViewController alloc] init];
+    UINavigationController *gridViewNav = [[UINavigationController alloc] initWithRootViewController:gridViewController];
     
+    self.splitViewController = [[UISplitViewController alloc] init];
+    self.splitViewController.viewControllers = [NSArray arrayWithObjects:navController, gridViewNav, nil];
+    self.window.rootViewController = self.splitViewController;
+    
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

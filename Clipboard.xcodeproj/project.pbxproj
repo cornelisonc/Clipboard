@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		477143EC170DF46600951B7E /* ccGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EB170DF46600951B7E /* ccGridViewController.m */; };
 		477143EF170DF55B00951B7E /* ccGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EE170DF55B00951B7E /* ccGridView.m */; };
-		4780BB18170E020500064252 /* ccMasterControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4780BB17170E020500064252 /* ccMasterControlViewController.m */; };
 		47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */; };
 		47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */; };
 		49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */; };
@@ -49,8 +48,6 @@
 		477143EB170DF46600951B7E /* ccGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridViewController.m; sourceTree = "<group>"; };
 		477143ED170DF55B00951B7E /* ccGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridView.h; sourceTree = "<group>"; };
 		477143EE170DF55B00951B7E /* ccGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridView.m; sourceTree = "<group>"; };
-		4780BB16170E020500064252 /* ccMasterControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccMasterControlViewController.h; sourceTree = "<group>"; };
-		4780BB17170E020500064252 /* ccMasterControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccMasterControlViewController.m; sourceTree = "<group>"; };
 		47E43AB5170A7C89001FC598 /* ccSelectSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneCell.h; sourceTree = "<group>"; };
 		47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneCell.m; sourceTree = "<group>"; };
 		47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccSceneSplitViewController.h; path = ../ccSceneSplitViewController.h; sourceTree = "<group>"; };
@@ -126,8 +123,6 @@
 			children = (
 				47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */,
 				47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */,
-				4780BB16170E020500064252 /* ccMasterControlViewController.h */,
-				4780BB17170E020500064252 /* ccMasterControlViewController.m */,
 				477143EA170DF46600951B7E /* ccGridViewController.h */,
 				477143EB170DF46600951B7E /* ccGridViewController.m */,
 			);
@@ -385,7 +380,6 @@
 				47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */,
 				477143EC170DF46600951B7E /* ccGridViewController.m in Sources */,
 				477143EF170DF55B00951B7E /* ccGridView.m in Sources */,
-				4780BB18170E020500064252 /* ccMasterControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

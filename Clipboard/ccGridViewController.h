@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ccGridView.h"
 
-@interface ccGridViewController : UIViewController
+@interface ccGridViewController : UIViewController<UISplitViewControllerDelegate>
 
-@property (nonatomic, strong) ccGridView *gridView;
+@property (nonatomic, strong) id detailItem;
+@property (nonatomic, strong) UILabel *detailDescriptionLabel;
 
 @end

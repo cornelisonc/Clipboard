@@ -10,10 +10,12 @@
 #import "ccGridViewController.h"
 #import "ccSelectSceneViewController.h"
 
+@class ccGridViewController;
 
-@interface ccSceneSplitViewController : UISplitViewController
+@interface ccSceneSplitViewController : UITableViewController
 
 @property (nonatomic, strong) ccGridViewController *gridViewController;
+@property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
 
 
 @end
