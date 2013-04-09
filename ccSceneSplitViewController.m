@@ -34,6 +34,7 @@ NSMutableArray *_objects;
     
     
     //Uncomment to display add icon
+    
     /*
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
