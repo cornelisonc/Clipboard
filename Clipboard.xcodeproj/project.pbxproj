@@ -14,6 +14,8 @@
 		4981B583170686BE00574380 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4981B57B170686BE00574380 /* FMResultSet.m */; };
 		4981B584170686BE00574380 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4981B57D170686BE00574380 /* FMDatabasePool.m */; };
 		4981B585170686BE00574380 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4981B57F170686BE00574380 /* fmdb.m */; };
+		4984C0FD171490DE00924DB0 /* ccFireFighterProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4984C0FC171490DE00924DB0 /* ccFireFighterProvider.m */; };
+		4984C1001714917600924DB0 /* ccFireFighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4984C0FF1714917600924DB0 /* ccFireFighter.m */; };
 		4986345217062D5600B20CA8 /* ccSQLiteCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986345117062D5600B20CA8 /* ccSQLiteCreate.m */; };
 		49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7616F793C2005C9788 /* ccFireInstance.m */; };
 		49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */; };
@@ -61,6 +63,10 @@
 		4981B57D170686BE00574380 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		4981B57E170686BE00574380 /* fmdb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmdb_Prefix.pch; sourceTree = "<group>"; };
 		4981B57F170686BE00574380 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		4984C0FB171490DE00924DB0 /* ccFireFighterProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireFighterProvider.h; sourceTree = "<group>"; };
+		4984C0FC171490DE00924DB0 /* ccFireFighterProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFireFighterProvider.m; sourceTree = "<group>"; };
+		4984C0FE1714917600924DB0 /* ccFireFighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireFighter.h; sourceTree = "<group>"; };
+		4984C0FF1714917600924DB0 /* ccFireFighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFireFighter.m; sourceTree = "<group>"; };
 		4986345017062D5600B20CA8 /* ccSQLiteCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSQLiteCreate.h; sourceTree = "<group>"; };
 		4986345117062D5600B20CA8 /* ccSQLiteCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSQLiteCreate.m; sourceTree = "<group>"; };
 		49E5EA7516F793C2005C9788 /* ccFireInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireInstance.h; sourceTree = "<group>"; };
@@ -159,6 +165,10 @@
 				49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */,
 				4986345017062D5600B20CA8 /* ccSQLiteCreate.h */,
 				4986345117062D5600B20CA8 /* ccSQLiteCreate.m */,
+				4984C0FB171490DE00924DB0 /* ccFireFighterProvider.h */,
+				4984C0FC171490DE00924DB0 /* ccFireFighterProvider.m */,
+				4984C0FE1714917600924DB0 /* ccFireFighter.h */,
+				4984C0FF1714917600924DB0 /* ccFireFighter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -368,6 +378,8 @@
 				49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */,
 				49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */,
 				4986345217062D5600B20CA8 /* ccSQLiteCreate.m in Sources */,
+				4984C0FD171490DE00924DB0 /* ccFireFighterProvider.m in Sources */,
+				4984C1001714917600924DB0 /* ccFireFighter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
