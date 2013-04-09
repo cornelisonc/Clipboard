@@ -40,7 +40,7 @@
 	
 	NSArray *finalArray = [NSArray arrayWithArray:arrayToSend];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"MUITCelebirdsDidParseNotification" object:self userInfo:@{@"instances" : finalArray}];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ccFireInstanceDidParseNotification" object:self userInfo:@{@"instances" : finalArray}];
 }
 
 
