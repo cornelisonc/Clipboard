@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ccSelectSceneView.h"
 #import "ccSelectSceneCell.h"
 #import "ccSceneSplitViewController.h"
 
 @interface ccSelectSceneViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) ccSelectSceneView *selectSceneView;
 @property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
 @property (nonatomic, strong) UITableView *selectSceneTableView;
 @property (nonatomic, strong) UIImageView *logoImageView;

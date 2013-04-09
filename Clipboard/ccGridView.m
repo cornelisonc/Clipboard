@@ -34,7 +34,7 @@
     if(!_gridView){
         _gridView = [[UIView alloc] init];
         
-        [_gridView setFrame:CGRectMake(320, 0, 320, [UIScreen mainScreen].bounds.size.height)];
+        [_gridView setFrame:CGRectMake(160, 0, 320, [UIScreen mainScreen].bounds.size.height)];
         
         [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         

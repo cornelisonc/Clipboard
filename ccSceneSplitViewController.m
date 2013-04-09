@@ -21,24 +21,41 @@ NSMutableArray *_objects;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+   /* UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
+    UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    [self.navigationItem setLeftBarButtonItem:customItem];
+  */
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:selectSceneViewController action:nil];
+    
+    
+    //Uncomment to display add icon
+    /*
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    */
+    
     
     [self setupGridView];
 
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     
     [self presentViewController:selectSceneViewController animated:YES completion:nil];
 
 }
 
--(void)setupGridView
+
+
+- (void)setupGridView
 {
-    
+    //Init the GridView
+    ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.gridView = gridView;
+	gridView.owner = self;
+    self.view = gridView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +84,29 @@ NSMutableArray *_objects;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _objects.count;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 0, headerView.frame.size.width-120.0, headerView.frame.size.height)];
+    
+    headerLabel.text = @"Title";
+    headerLabel.backgroundColor = [UIColor clearColor];
+    
+    UISegmentedControl *segControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    
+    
+    [headerView addSubview:segControl];
+   // [headerView addSubview:headerLabel];
+    
+    return headerView;
+    
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return  30.0;
 }
 
 // Customize the appearance of table view cells.

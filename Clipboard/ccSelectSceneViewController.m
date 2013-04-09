@@ -14,27 +14,7 @@
 
 @implementation ccSelectSceneViewController
 
-/*
-- (void)loadView
-{
 
-    //Init the main view
-	ccSelectSceneView *selectSceneView = [[ccSelectSceneView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-	self.selectSceneView = selectSceneView;
-	selectSceneView.owner = self;
-    
-    //Init the imageView
-    self.logoImageView = selectSceneView.logoImageView;
-
-    //Init the tableView
-    
-    self.selectSceneTableView = selectSceneView.selectSceneTableView;
-    self.selectSceneTableView.delegate = self;
-    self.selectSceneTableView.dataSource = self;
-    self.nameLabel = selectSceneView.nameLabel;
-	self.view = selectSceneView;
-}
- */
 
 - (void)viewDidLoad
 {
@@ -83,7 +63,6 @@
     //detailViewController.title = self.nameLabel[indexPath.row];
     // ...
     // Pass the selected object to the new view controller.
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:_selectSceneViewController animated:YES];
 }
