@@ -26,25 +26,27 @@ NSMutableArray *_objects;
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-   /* UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
+    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
     UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
     [self.navigationItem setLeftBarButtonItem:customItem];
-  */
+  
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:selectSceneViewController action:nil];
     
     
     //Uncomment to display add icon
-    
     /*
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     */
     
-    
+    //Uncomment to display GridView
     //[self setupGridView];
-
-    [self initSegmentControl];
-    [self presentViewController:selectSceneViewController animated:YES completion:nil];
+    
+    //Uncomment to display segment control in view
+    //[self initSegmentControl];
+  
+    //Uncomment to display selectSceneViewController
+    //[self presentViewController:selectSceneViewController animated:YES completion:nil];
 
 }
 
@@ -60,7 +62,7 @@ NSMutableArray *_objects;
 	segmentedControl.selectedSegmentIndex = 0;
 	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.frame = CGRectMake(0, 0, 400, 30);
+	segmentedControl.frame = CGRectMake(0, 0, 320, 30);
 	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
 	
     
@@ -123,7 +125,7 @@ NSMutableArray *_objects;
 	segmentedControl.selectedSegmentIndex = 0;
 	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.frame = CGRectMake(0, 0, 400, 30);
+	segmentedControl.frame = CGRectMake(0, 0, headerView.frame.size.width, 30);
 	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     
     [headerView addSubview:segmentedControl];
