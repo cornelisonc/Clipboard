@@ -42,11 +42,40 @@ NSMutableArray *_objects;
     
     //[self setupGridView];
 
-    
+    [self initSegmentControl];
     [self presentViewController:selectSceneViewController animated:YES completion:nil];
 
 }
 
+- (void)initSegmentControl
+{
+	// segmented control as the custom title view
+	NSArray *segmentTextContent = [NSArray arrayWithObjects:
+                                   NSLocalizedString(@"People", @""),
+                                   NSLocalizedString(@"Protocols", @""),
+                                   NSLocalizedString(@"Log", @""),
+								   nil];
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
+	segmentedControl.selectedSegmentIndex = 0;
+	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	segmentedControl.frame = CGRectMake(0, 0, 400, 30);
+	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+	
+    
+	self.navigationItem.titleView = segmentedControl;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	UISegmentedControl *segmentedControl = (UISegmentedControl *)self.navigationItem.rightBarButtonItem.customView;
+	
+	// Before we show this view make sure the segmentedControl matches the nav bar style
+	if (self.navigationController.navigationBar.barStyle == UIBarStyleBlackTranslucent || self.navigationController.navigationBar.barStyle == UIBarStyleBlackOpaque){
+		segmentedControl.tintColor = [UIColor darkGrayColor];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -84,11 +113,19 @@ NSMutableArray *_objects;
     headerLabel.text = @"Title";
     headerLabel.backgroundColor = [UIColor clearColor];
     
-    UISegmentedControl *segControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+	NSArray *segmentTextContent = [NSArray arrayWithObjects:
+                                   NSLocalizedString(@"People", @""),
+                                   NSLocalizedString(@"Protocols", @""),
+                                   NSLocalizedString(@"Log", @""),
+								   nil];
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
+	segmentedControl.selectedSegmentIndex = 0;
+	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	segmentedControl.frame = CGRectMake(0, 0, 400, 30);
+	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     
-    
-    [headerView addSubview:segControl];
-   // [headerView addSubview:headerLabel];
+    [headerView addSubview:segmentedControl];
     
     return headerView;
     
