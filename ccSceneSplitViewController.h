@@ -15,7 +15,6 @@
 @interface ccSceneSplitViewController : UITableViewController
 
 @property (nonatomic, strong) ccGridViewController *gridViewController;
-@property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
 
 
 @end

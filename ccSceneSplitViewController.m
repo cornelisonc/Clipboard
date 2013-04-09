@@ -17,19 +17,6 @@ NSMutableArray *_objects;
 
 @implementation ccSceneSplitViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-        self.title = NSLocalizedString(@"Master", @"Master");
-        self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
-    
-
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -41,9 +28,17 @@ NSMutableArray *_objects;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    [self setupGridView];
+
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     
-    [self presentViewController:selectSceneViewController animated:NO completion:nil];
+    [self presentViewController:selectSceneViewController animated:YES completion:nil];
+
+}
+
+-(void)setupGridView
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
