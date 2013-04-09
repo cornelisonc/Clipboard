@@ -40,23 +40,13 @@ NSMutableArray *_objects;
     */
     
     
-    [self setupGridView];
+    //[self setupGridView];
 
     
     [self presentViewController:selectSceneViewController animated:YES completion:nil];
 
 }
 
-
-
-- (void)setupGridView
-{
-    //Init the GridView
-    ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    self.gridView = gridView;
-	gridView.owner = self;
-    self.view = gridView;
-}
 
 - (void)didReceiveMemoryWarning
 {

@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         [self addSubview:self.gridView];
+        [self addSubview:self.timeLabel];
     }
     return self;
 }
@@ -34,15 +35,32 @@
     if(!_gridView){
         _gridView = [[UIView alloc] init];
         
-        [_gridView setFrame:CGRectMake(160, 0, 320, [UIScreen mainScreen].bounds.size.height)];
+        [_gridView setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         
-        [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+        [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin];
         
         [_gridView setBackgroundColor:[UIColor blueColor]];
+        
     }
     
     return _gridView;
     
+}
+
+- (UILabel *)timeLabel
+{
+
+    if(!_timeLabel){
+
+        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, 60.0f, 44.0f)];
+		[_timeLabel setBackgroundColor: [UIColor whiteColor]];
+		[_timeLabel setTextColor:[UIColor redColor]];
+        [_timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin];
+
+    }
+    [_timeLabel setText:@"Time"];
+    
+    return _timeLabel;
 }
 
 @end

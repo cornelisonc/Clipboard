@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) id detailItem;
 @property (nonatomic, strong) UILabel *detailDescriptionLabel;
+@property (nonatomic, strong) ccGridView *gridView;
 
 @end

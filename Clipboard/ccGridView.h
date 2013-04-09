@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) UIView *gridView;
 @property (nonatomic, strong) id owner;
+@property (nonatomic, strong) UILabel *timeLabel;
 @end

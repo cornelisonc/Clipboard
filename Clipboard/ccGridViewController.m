@@ -40,6 +40,20 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
+    
+    //Init the GridView
+    ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.gridView = gridView;
+    
+    //Init the Time Label
+    self.gridView.timeLabel = gridView.timeLabel;
+    
+    gridView.owner = self;
+    self.view = gridView;
+    
+
+    
+    
 }
 
 - (void)viewDidLoad
