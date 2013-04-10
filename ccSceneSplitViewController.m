@@ -7,7 +7,6 @@
 //
 
 #import "ccSceneSplitViewController.h"
-#import "ccGridViewController.h"
 
 @interface ccSceneSplitViewController (){
 
@@ -190,7 +189,7 @@ NSMutableArray *_objects;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDate *object = _objects[indexPath.row];
-    self.gridViewController.detailItem = object;
+    self.detailViewController.detailItem = object;
 }
 
 

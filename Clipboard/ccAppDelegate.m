@@ -8,8 +8,7 @@
 
 #import "ccAppDelegate.h"
 #import "ccSceneSplitViewController.h"
-#import "ccGridViewController.h"
-
+#import "ccDetailViewController.h"
 
 @implementation ccAppDelegate
 
@@ -23,16 +22,15 @@
     UINavigationController *sceneSplitViewNavController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
   
     //Create a DetailView controller
-    ccGridViewController *gridViewController = [[ccGridViewController alloc] init];
-    UINavigationController *gridViewNav = [[UINavigationController alloc] initWithRootViewController:gridViewController];
+    ccDetailViewController *detailViewController = [[ccDetailViewController alloc] init];
+    UINavigationController *detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     
-    sceneSplitViewController.gridViewController = gridViewController;
+    sceneSplitViewController.detailViewController = detailViewController;
     
     self.splitViewController = [[UISplitViewController alloc] init];
-    self.splitViewController.delegate = gridViewController;
-    self.splitViewController.viewControllers = @[sceneSplitViewNavController, gridViewNav];
+    self.splitViewController.delegate = detailViewController;
+    self.splitViewController.viewControllers = @[sceneSplitViewNavController, detailNavController];
     self.window.rootViewController = self.splitViewController;
-    
     [self.window makeKeyAndVisible];
 
     return YES;

@@ -1,22 +1,23 @@
 //
-//  ccGridViewController.m
+//  ccDetailViewController.m
 //  Clipboard
 //
-//  Created by William Cleeton on 4/4/13.
+//  Created by William Cleeton on 4/9/13.
 //  Copyright (c) 2013 muit. All rights reserved.
 //
 
-#import "ccGridViewController.h"
+#import "ccDetailViewController.h"
 
-@interface ccGridViewController ()
+@interface ccDetailViewController ()
 
 @property (nonatomic, strong) UIPopoverController *masterPopoverController;
 -(void)configureView;
 
+
 @end
 
-@implementation ccGridViewController
-/*
+@implementation ccDetailViewController
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -40,7 +41,7 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
-    
+    /*
     //Init the GridView
     ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.gridView = gridView;
@@ -50,19 +51,16 @@
     
     gridView.owner = self;
     self.view = gridView;
-    
-
-    
-    
+     */
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view.
     [self configureView];
 }
-
 
 #pragma mark - Split view
 
@@ -80,5 +78,5 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
-*/
+
 @end
