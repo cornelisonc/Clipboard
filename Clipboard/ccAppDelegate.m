@@ -30,7 +30,7 @@
     
     self.splitViewController = [[UISplitViewController alloc] init];
     self.splitViewController.delegate = gridViewController;
-    self.splitViewController.viewControllers = [NSArray arrayWithObjects:sceneSplitViewNavController, gridViewNav, nil];
+    self.splitViewController.viewControllers = @[sceneSplitViewNavController, gridViewNav];
     self.window.rootViewController = self.splitViewController;
     
     [self.window makeKeyAndVisible];
