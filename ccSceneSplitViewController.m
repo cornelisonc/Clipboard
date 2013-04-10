@@ -25,11 +25,10 @@ NSMutableArray *_objects;
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
-    UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
-    [self.navigationItem setLeftBarButtonItem:customItem];
-  
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:selectSceneViewController action:nil];
+    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:selectSceneViewController action:nil];
     
     
     //Uncomment to display add icon
