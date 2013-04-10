@@ -64,7 +64,7 @@
     // ...
     // Pass the selected object to the new view controller.
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController pushViewController:_selectSceneViewController animated:YES];
+    
 }
 
 

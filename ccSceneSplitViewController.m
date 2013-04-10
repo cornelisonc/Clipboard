@@ -20,16 +20,16 @@ NSMutableArray *_objects;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-
+    
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:selectSceneViewController action:nil];
-    
+    //Init Back Button
+    [self initBackButton];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
     
     //Uncomment to display add icon
     /*
@@ -44,10 +44,31 @@ NSMutableArray *_objects;
     //[self initSegmentControl];
   
     //Uncomment to display selectSceneViewController
-    //[self presentViewController:selectSceneViewController animated:YES completion:nil];
+    [self presentViewController:selectSceneViewController animated:YES completion:nil];
 
 }
 
+- (IBAction)backButtonPressed:(id)sender
+{
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    [self.navigationController pushViewController:selectSceneViewController animated:YES];
+}
+
+- (void)initBackButton
+{
+    
+    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+}
+
+/*
+- (void)backButtonPressed
+{
+     [backButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+}
+*/
 - (void)initSegmentControl
 {
 	// segmented control as the custom title view
