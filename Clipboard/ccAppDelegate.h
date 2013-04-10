@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ccSceneSplitViewController.h"
 
 
 @interface ccAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
 

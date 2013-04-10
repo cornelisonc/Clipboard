@@ -18,17 +18,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-	// Our window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
-	// as the root controller for our window.
-	        
+	//Create a MasterView controller 
     ccSceneSplitViewController *sceneSplitViewController = [[ccSceneSplitViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
-
+    UINavigationController *sceneSplitViewNavController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
+  
+    //Create a DetailView controller
     ccGridViewController *gridViewController = [[ccGridViewController alloc] init];
     UINavigationController *gridViewNav = [[UINavigationController alloc] initWithRootViewController:gridViewController];
     
+    sceneSplitViewController.gridViewController = gridViewController;
+    
     self.splitViewController = [[UISplitViewController alloc] init];
-    self.splitViewController.viewControllers = [NSArray arrayWithObjects:navController, gridViewNav, nil];
+    self.splitViewController.delegate = gridViewController;
+    self.splitViewController.viewControllers = [NSArray arrayWithObjects:sceneSplitViewNavController, gridViewNav, nil];
     self.window.rootViewController = self.splitViewController;
     
     [self.window makeKeyAndVisible];
