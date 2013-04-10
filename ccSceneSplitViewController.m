@@ -51,7 +51,7 @@ NSMutableArray *_objects;
 - (IBAction)backButtonPressed:(id)sender
 {
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    [self.navigationController pushViewController:selectSceneViewController animated:YES];
+    [self presentViewController:selectSceneViewController animated:YES completion:nil];
 }
 
 - (void)initBackButton
