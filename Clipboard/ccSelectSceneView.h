@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ccSelectSceneCell.h"
 
-@interface ccSelectSceneView : UIView
+@interface ccSelectSceneView : UIView 
 
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) UITableView *selectSceneTableView;
+@property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) id owner;
 
 @end

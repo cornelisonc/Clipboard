@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4738D03C170B26C100594568 /* ccDetailViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4738D03B170B26C100594568 /* ccDetailViewManager.m */; };
+		47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */; };
+		47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */; };
 		49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */; };
 		49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7616F793C2005C9788 /* ccFireInstance.m */; };
 		49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4738D03A170B26C100594568 /* ccDetailViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccDetailViewManager.h; sourceTree = "<group>"; };
+		4738D03B170B26C100594568 /* ccDetailViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccDetailViewManager.m; sourceTree = "<group>"; };
+		47E43AB5170A7C89001FC598 /* ccSelectSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneCell.h; sourceTree = "<group>"; };
+		47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneCell.m; sourceTree = "<group>"; };
+		47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccSceneSplitViewController.h; path = ../ccSceneSplitViewController.h; sourceTree = "<group>"; };
+		47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ccSceneSplitViewController.m; path = ../ccSceneSplitViewController.m; sourceTree = "<group>"; };
 		49468CE616F7E1E600D09587 /* ccInstanceLogUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccInstanceLogUploader.h; sourceTree = "<group>"; };
 		49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccInstanceLogUploader.m; sourceTree = "<group>"; };
 		49E5EA7516F793C2005C9788 /* ccFireInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireInstance.h; sourceTree = "<group>"; };
@@ -97,11 +106,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A70A8C7716EFA69C00DBA1E4 /* View */ = {
+		47E43ABE170ABCE4001FC598 /* SelectScene */ = {
+			isa = PBXGroup;
+			children = (
+				A70A8C7F16EFA8D400DBA1E4 /* ccSelectSceneViewController.h */,
+				A70A8C8016EFA8D400DBA1E4 /* ccSelectSceneViewController.m */,
+			);
+			name = SelectScene;
+			sourceTree = "<group>";
+		};
+		47E43ABF170ABD03001FC598 /* SceneSplit */ = {
+			isa = PBXGroup;
+			children = (
+				47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */,
+				47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */,
+				4738D03A170B26C100594568 /* ccDetailViewManager.h */,
+				4738D03B170B26C100594568 /* ccDetailViewManager.m */,
+			);
+			name = SceneSplit;
+			sourceTree = "<group>";
+		};
+		47E43AC0170ABD2B001FC598 /* SelectScene */ = {
 			isa = PBXGroup;
 			children = (
 				A70A8C7C16EFA7D200DBA1E4 /* ccSelectSceneView.h */,
 				A70A8C7D16EFA7D200DBA1E4 /* ccSelectSceneView.m */,
+			);
+			name = SelectScene;
+			sourceTree = "<group>";
+		};
+		47E43AC1170ABD54001FC598 /* SceneSplit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SceneSplit;
+			sourceTree = "<group>";
+		};
+		A70A8C7716EFA69C00DBA1E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47E43AC0170ABD2B001FC598 /* SelectScene */,
+				47E43AC1170ABD54001FC598 /* SceneSplit */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -124,8 +169,8 @@
 		A70A8C7916EFA6A800DBA1E4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A70A8C7F16EFA8D400DBA1E4 /* ccSelectSceneViewController.h */,
-				A70A8C8016EFA8D400DBA1E4 /* ccSelectSceneViewController.m */,
+				47E43ABE170ABCE4001FC598 /* SelectScene */,
+				47E43ABF170ABD03001FC598 /* SceneSplit */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -165,6 +210,8 @@
 			children = (
 				A7D0546016DFDC53007142C1 /* ccAppDelegate.h */,
 				A7D0546116DFDC53007142C1 /* ccAppDelegate.m */,
+				47E43AB5170A7C89001FC598 /* ccSelectSceneCell.h */,
+				47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */,
 				A70A8C7816EFA6A200DBA1E4 /* Model */,
 				A7D0545816DFDC53007142C1 /* Supporting Files */,
 				A70A8C7716EFA69C00DBA1E4 /* View */,
@@ -324,6 +371,9 @@
 				49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */,
 				49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */,
 				49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */,
+				47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */,
+				47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */,
+				4738D03C170B26C100594568 /* ccDetailViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
