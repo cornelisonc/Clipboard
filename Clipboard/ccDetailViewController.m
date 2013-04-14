@@ -18,6 +18,13 @@
 
 @implementation ccDetailViewController
 
+#pragma mark - viewDidLoad
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.//
+    
+}
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -26,7 +33,10 @@
         _detailItem = newDetailItem;
         
         // Update the view.
+
         [self configureView];
+        
+        
     }
     
     if (self.masterPopoverController != nil) {
@@ -39,9 +49,9 @@
     // Update the user interface for the detail item.
     
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailDescriptionLabel.text = [self.detailItem description];        
     }
-    /*
+    
     //Init the GridView
     ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.gridView = gridView;
@@ -51,16 +61,11 @@
     
     gridView.owner = self;
     self.view = gridView;
-     */
+     
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    [self configureView];
-}
+
 
 #pragma mark - Split view
 
@@ -76,6 +81,7 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+    
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ccGridView.h"
 
+
 @interface ccDetailViewController : UIViewController<UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) id detailItem;

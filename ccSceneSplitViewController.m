@@ -37,56 +37,13 @@ NSMutableArray *_objects;
     self.navigationItem.rightBarButtonItem = addButton;
     */
     
-    //Uncomment to display GridView
-    //[self setupGridView];
-    
     //Uncomment to display segment control in view
     //[self initSegmentControl];
   
     //Uncomment to display selectSceneViewController
     [self presentViewController:selectSceneViewController animated:YES completion:nil];
-
-}
-
-- (IBAction)backButtonPressed:(id)sender
-{
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    [self presentViewController:selectSceneViewController animated:YES completion:nil];
-}
-
-- (void)initBackButton
-{
     
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    
-}
 
-/*
-- (void)backButtonPressed
-{
-     [backButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
-}
-*/
-- (void)initSegmentControl
-{
-	// segmented control as the custom title view
-	NSArray *segmentTextContent = [NSArray arrayWithObjects:
-                                   NSLocalizedString(@"People", @""),
-                                   NSLocalizedString(@"Protocols", @""),
-                                   NSLocalizedString(@"Log", @""),
-								   nil];
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
-	segmentedControl.selectedSegmentIndex = 0;
-	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.frame = CGRectMake(0, 0, 320, 30);
-	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-	
-    
-	self.navigationItem.titleView = segmentedControl;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -115,6 +72,66 @@ NSMutableArray *_objects;
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+#pragma mark - Init
+
+- (void)initBackButton
+{
+    
+    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
+    
+}
+
+- (void)initSegmentControl
+{
+	// segmented control as the custom title view
+	NSArray *segmentTextContent = [NSArray arrayWithObjects:
+                                   NSLocalizedString(@"People", @""),
+                                   NSLocalizedString(@"Protocols", @""),
+                                   NSLocalizedString(@"Log", @""),
+								   nil];
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
+	_segmentedControl.selectedSegmentIndex = 0;
+	_segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	_segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	_segmentedControl.frame = CGRectMake(0, 0, 320, 44.0f);
+	[_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+        
+}
+
+#pragma mark - Actions
+
+- (IBAction)backButtonPressed:(id)sender
+{
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    [self presentViewController:selectSceneViewController animated:YES completion:nil];
+}
+
+
+
+-(IBAction)segmentAction:(id)sender
+{
+    
+    [self.tableView reloadData];
+    
+   /* switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            [self.tableView reloadData];
+            break;
+        case 1:
+            [self.tableView reloadData];
+            break;
+        case 2:
+            [self.tableView reloadData];
+            break;
+        default:
+            break;
+    }
+*/
+}
+
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -124,30 +141,29 @@ NSMutableArray *_objects;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            return _objects.count;
+            break;
+        case 1:
+            return 10;
+            break;
+        case 2:
+            return 11;
+            break;
+        default:
+            return 0;
+            break;
+    }
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,44.0f)];
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 0, headerView.frame.size.width-120.0, headerView.frame.size.height)];
+    [self initSegmentControl];
     
-    headerLabel.text = @"Title";
-    headerLabel.backgroundColor = [UIColor clearColor];
-    
-	NSArray *segmentTextContent = [NSArray arrayWithObjects:
-                                   NSLocalizedString(@"People", @""),
-                                   NSLocalizedString(@"Protocols", @""),
-                                   NSLocalizedString(@"Log", @""),
-								   nil];
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
-	segmentedControl.selectedSegmentIndex = 0;
-	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.frame = CGRectMake(0, 0, headerView.frame.size.width, 30);
-	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-    
-    [headerView addSubview:segmentedControl];
+    [headerView addSubview:_segmentedControl];
     
     return headerView;
     
@@ -155,7 +171,7 @@ NSMutableArray *_objects;
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return  30.0;
+    return  44.0f;
 }
 
 // Customize the appearance of table view cells.
@@ -167,10 +183,23 @@ NSMutableArray *_objects;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    
+   
     NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            cell.textLabel.text = [object description];
+            break;
+        case 1:
+            cell.textLabel.text = @"HEY";
+            break;
+        case 2:
+            cell.textLabel.text = @"SUP";
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
