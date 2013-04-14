@@ -22,7 +22,9 @@ NSMutableArray *_objects;
     [super viewDidLoad];
     
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    
+    // to display selectSceneViewController
+    [self presentViewController:selectSceneViewController animated:YES completion: nil];
+
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -36,12 +38,8 @@ NSMutableArray *_objects;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     */
-    
-    //Uncomment to display segment control in view
-    //[self initSegmentControl];
-  
-    //Uncomment to display selectSceneViewController
-    [self presentViewController:selectSceneViewController animated:YES completion:nil];
+
+
     
 
 }
@@ -71,6 +69,7 @@ NSMutableArray *_objects;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
 
 #pragma mark - Init
 
@@ -115,20 +114,6 @@ NSMutableArray *_objects;
     
     [self.tableView reloadData];
     
-   /* switch (self.segmentedControl.selectedSegmentIndex) {
-        case 0:
-            [self.tableView reloadData];
-            break;
-        case 1:
-            [self.tableView reloadData];
-            break;
-        case 2:
-            [self.tableView reloadData];
-            break;
-        default:
-            break;
-    }
-*/
 }
 
 
@@ -212,6 +197,14 @@ NSMutableArray *_objects;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        switch (self.segmentedControl.selectedSegmentIndex) {
+            case 0:
+                [_objects removeObjectAtIndex:indexPath.row];
+                break;
+                
+            default:
+                break;
+        }
         [_objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
