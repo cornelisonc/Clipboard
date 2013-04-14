@@ -1,21 +1,16 @@
 //
-//  ccInstanceProvider.m
+//  ccFireFighterProvider.m
 //  Clipboard
 //
-//  Created by Borrower on 3/18/13.
+//  Created by Borrower on 4/9/13.
 //  Copyright (c) 2013 muit. All rights reserved.
 //
 
-#import "ccInstanceProvider.h"
+#import "ccFireFighterProvider.h"
 
-@interface ccInstanceProvider ()
+@implementation ccFireFighterProvider
 
-@end
-
-
-@implementation ccInstanceProvider
-
-- (void)fetchInstance
+- (void)fetchFireFighter
 {
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
 	NSString *URLString = @"muitclipboard.herokuapp.com/api/v1/auto_cad_data.json"; //not the real url, just placeholder
@@ -29,20 +24,18 @@
 - (void)parseInstanceWithData:(NSData *)data
 {
 	NSArray *arrayFromData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-	//NSArray *instanceFromData = arrayFromData; //this may be an incorrect assignment to @"instances"
 	
 	
-     NSMutableArray *arrayToSend = [NSMutableArray array];
-    	for (NSDictionary *dictionary in arrayFromData) {
-		ccFireInstance *instance = [[ccFireInstance alloc] initWithDictionary:dictionary];
+    NSMutableArray *arrayToSend = [NSMutableArray array];
+    for (NSDictionary *dictionary in arrayFromData) {
+		ccFireFighter *instance = [[ccFireFighter alloc] initWithDictionary:dictionary];
 		[arrayToSend addObject:instance];
 	}
 	
 	NSArray *finalArray = [NSArray arrayWithArray:arrayToSend];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"ccFireInstanceDidParseNotification" object:self userInfo:@{@"instances" : finalArray}];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ccFireFightersDidParseNotification" object:self userInfo:@{@"fireFighters" : finalArray}];
 }
 
 
 @end
-
