@@ -11,7 +11,7 @@
 
 @interface ccInstanceProvider : NSObject
 
-@property (nonatomic, strong) NSMutableArray *instances;
+//@property (nonatomic, strong) NSDictionary *instances;
 
 - (void)fetchInstance;
 
