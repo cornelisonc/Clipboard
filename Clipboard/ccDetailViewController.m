@@ -60,6 +60,16 @@
     
     //set the Time Label
     self.gridView.timeLabel = gridView.timeLabel;
+    self.gridView.timerLabel = gridView.timerLabel;
+    self.gridView.locationLabel = gridView.locationLabel;
+    self.gridView.buildingLabel = gridView.buildingLabel;
+    self.gridView.typeOfFireLabel = gridView.typeOfFireLabel;
+    self.gridView.commanderLabel = gridView.commanderLabel;
+    self.gridView.commandAideLabel = gridView.commandAideLabel;
+    self.gridView.safetyOfficerLabel = gridView.safetyOfficerLabel;
+    self.gridView.PIOLabel = gridView.PIOLabel;
+    self.gridView.fireInvestigatorLabel = gridView.fireInvestigatorLabel;
+    self.gridView.strategyLabel = gridView.strategyLabel;
     
     gridView.owner = self;
     self.view = gridView;
