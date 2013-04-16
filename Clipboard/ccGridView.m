@@ -47,6 +47,21 @@
     
 }
 
+- (UIImage *)gridViewGrid
+{
+    
+    if(!_gridViewGrid){
+        
+        
+       // _gridViewGrid = [UIImage imageNamed:@"gridViewGrid.psd"];
+    
+        
+    }
+    
+    
+    return _gridViewGrid;
+}
+
 - (UILabel *)timeLabel
 {
 

@@ -10,6 +10,9 @@
 
 @interface ccSelectSceneViewController ()
 
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
+@property (nonatomic, strong) NSMutableArray *downloads;
+
 @end
 
 @implementation ccSelectSceneViewController
@@ -24,9 +27,37 @@
     static NSString *CellIdentifier = @"Cell";
 	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireInstanceDidParseNotification" object:nil];
+    
+    //set up and configure an operation queue so processing does not happen on the main thread.
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    [self.operationQueue setMaxConcurrentOperationCount:3];
+    
+    //set up data
+    [self setupScenes];
+    
     
     
 }
+
+#pragma mark - Actions
+
+- (void)respondToInstanceParse:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    self.scene = userInfo[@"instances"];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self.tableView reloadData];
+	}];
+    
+}
+
+-(void)setupScenes
+{
+    
+}
+
 
 #pragma mark - Table view data source
 

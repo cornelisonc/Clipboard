@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ccSelectSceneCell.h"
 #import "ccSceneSplitViewController.h"
+#import "ccFireInstance.h"
+
 
 @interface ccSelectSceneViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,5 +19,7 @@
 @property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) id owner;
+@property (nonatomic, strong) NSMutableArray *scene;
+
 
 @end

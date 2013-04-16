@@ -114,6 +114,7 @@ NSMutableArray *_objects;
     
     [self.tableView reloadData];
     
+    
 }
 
 
@@ -128,13 +129,13 @@ NSMutableArray *_objects;
 {
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            return _objects.count;
+            return 10;
             break;
         case 1:
             return 10;
             break;
         case 2:
-            return 11;
+            return 10;
             break;
         default:
             return 0;
@@ -173,7 +174,8 @@ NSMutableArray *_objects;
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            cell.textLabel.text = [object description];
+            //cell.textLabel.text = [object description];
+            cell.textLabel.text = @"Casey B.";
             break;
         case 1:
             cell.textLabel.text = @"HEY";

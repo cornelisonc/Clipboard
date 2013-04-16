@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470CF0F6171BAB8F00001701 /* gridViewGrid.psd in Resources */ = {isa = PBXBuildFile; fileRef = 470CF0F5171BAB8F00001701 /* gridViewGrid.psd */; };
 		477143EC170DF46600951B7E /* ccGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EB170DF46600951B7E /* ccGridViewController.m */; };
 		477143EF170DF55B00951B7E /* ccGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EE170DF55B00951B7E /* ccGridView.m */; };
 		4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4785347D17150C1800B8A750 /* ccDetailViewController.m */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470CF0F5171BAB8F00001701 /* gridViewGrid.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridViewGrid.psd; path = ../../gridViewGrid.psd; sourceTree = "<group>"; };
 		477143EA170DF46600951B7E /* ccGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridViewController.h; sourceTree = "<group>"; };
 		477143EB170DF46600951B7E /* ccGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridViewController.m; sourceTree = "<group>"; };
 		477143ED170DF55B00951B7E /* ccGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridView.h; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				A7D0545A16DFDC53007142C1 /* InfoPlist.strings */,
 				4785347F1715145200B8A750 /* backbutton.psd */,
 				A7D0545D16DFDC53007142C1 /* main.m */,
+				470CF0F5171BAB8F00001701 /* gridViewGrid.psd */,
 				A7D0545F16DFDC53007142C1 /* Clipboard-Prefix.pch */,
 				A7D0546316DFDC53007142C1 /* Default.png */,
 				A7D0546516DFDC53007142C1 /* Default@2x.png */,
@@ -353,6 +356,7 @@
 			files = (
 				A7D0547A16DFDC53007142C1 /* InfoPlist.strings in Resources */,
 				478534811715145200B8A750 /* backbutton.psd in Resources */,
+				470CF0F6171BAB8F00001701 /* gridViewGrid.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

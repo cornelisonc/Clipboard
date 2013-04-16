@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.//
+    [self configureView];
+    
     
 }
 #pragma mark - Managing the detail item
