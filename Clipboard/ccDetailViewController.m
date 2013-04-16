@@ -58,7 +58,7 @@
     ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.gridView = gridView;
     
-    //Init the Time Label
+    //set the Time Label
     self.gridView.timeLabel = gridView.timeLabel;
     
     gridView.owner = self;

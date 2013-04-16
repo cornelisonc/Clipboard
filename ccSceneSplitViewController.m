@@ -39,18 +39,18 @@ NSMutableArray *_objects;
     self.navigationItem.rightBarButtonItem = addButton;
     */
 
+    [self initSegmentControl];
 
-    
+    [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	UISegmentedControl *segmentedControl = (UISegmentedControl *)self.navigationItem.rightBarButtonItem.customView;
 	
 	// Before we show this view make sure the segmentedControl matches the nav bar style
 	if (self.navigationController.navigationBar.barStyle == UIBarStyleBlackTranslucent || self.navigationController.navigationBar.barStyle == UIBarStyleBlackOpaque){
-		segmentedControl.tintColor = [UIColor darkGrayColor];
     }
 }
 
@@ -95,7 +95,6 @@ NSMutableArray *_objects;
 	_segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	_segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	_segmentedControl.frame = CGRectMake(0, 0, 320, 44.0f);
-	[_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
         
 }
 
@@ -116,6 +115,8 @@ NSMutableArray *_objects;
     
     
 }
+
+
 
 
 #pragma mark - Table View
@@ -145,19 +146,17 @@ NSMutableArray *_objects;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,44.0f)];
-    
-    [self initSegmentControl];
-    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,44)];
+        
     [headerView addSubview:_segmentedControl];
-    
+
     return headerView;
     
 }
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return  44.0f;
+    return  44;
 }
 
 // Customize the appearance of table view cells.
@@ -169,19 +168,18 @@ NSMutableArray *_objects;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-   
-    NSDate *object = _objects[indexPath.row];
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             //cell.textLabel.text = [object description];
-            cell.textLabel.text = @"Casey B.";
+            cell.textLabel.text = @"J. Doe";
+            
             break;
         case 1:
-            cell.textLabel.text = @"HEY";
+            cell.textLabel.text = @"Tactical Benchmarks";
             break;
         case 2:
-            cell.textLabel.text = @"SUP";
+            cell.textLabel.text = @"Log";
             break;
         default:
             break;

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		470CF0F6171BAB8F00001701 /* gridViewGrid.psd in Resources */ = {isa = PBXBuildFile; fileRef = 470CF0F5171BAB8F00001701 /* gridViewGrid.psd */; };
 		477143EC170DF46600951B7E /* ccGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EB170DF46600951B7E /* ccGridViewController.m */; };
 		477143EF170DF55B00951B7E /* ccGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EE170DF55B00951B7E /* ccGridView.m */; };
+		477D01D0171D348500DAE169 /* Building.png in Resources */ = {isa = PBXBuildFile; fileRef = 477D01CF171D348500DAE169 /* Building.png */; };
 		4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4785347D17150C1800B8A750 /* ccDetailViewController.m */; };
 		478534801715145200B8A750 /* backbutton.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4785347F1715145200B8A750 /* backbutton.psd */; };
 		478534811715145200B8A750 /* backbutton.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4785347F1715145200B8A750 /* backbutton.psd */; };
@@ -48,11 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		470CF0F5171BAB8F00001701 /* gridViewGrid.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = gridViewGrid.psd; path = ../../gridViewGrid.psd; sourceTree = "<group>"; };
 		477143EA170DF46600951B7E /* ccGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridViewController.h; sourceTree = "<group>"; };
 		477143EB170DF46600951B7E /* ccGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridViewController.m; sourceTree = "<group>"; };
 		477143ED170DF55B00951B7E /* ccGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridView.h; sourceTree = "<group>"; };
 		477143EE170DF55B00951B7E /* ccGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridView.m; sourceTree = "<group>"; };
+		477D01CF171D348500DAE169 /* Building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Building.png; sourceTree = "<group>"; };
 		4785347C17150C1800B8A750 /* ccDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccDetailViewController.h; sourceTree = "<group>"; };
 		4785347D17150C1800B8A750 /* ccDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccDetailViewController.m; sourceTree = "<group>"; };
 		4785347F1715145200B8A750 /* backbutton.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = backbutton.psd; path = ../../../Library/Containers/com.apple.Preview/Data/Downloads/backbutton.psd; sourceTree = "<group>"; };
@@ -241,8 +241,8 @@
 				A7D0545916DFDC53007142C1 /* Clipboard-Info.plist */,
 				A7D0545A16DFDC53007142C1 /* InfoPlist.strings */,
 				4785347F1715145200B8A750 /* backbutton.psd */,
+				477D01CF171D348500DAE169 /* Building.png */,
 				A7D0545D16DFDC53007142C1 /* main.m */,
-				470CF0F5171BAB8F00001701 /* gridViewGrid.psd */,
 				A7D0545F16DFDC53007142C1 /* Clipboard-Prefix.pch */,
 				A7D0546316DFDC53007142C1 /* Default.png */,
 				A7D0546516DFDC53007142C1 /* Default@2x.png */,
@@ -347,6 +347,7 @@
 				A7D0546616DFDC53007142C1 /* Default@2x.png in Resources */,
 				A7D0546816DFDC53007142C1 /* Default-568h@2x.png in Resources */,
 				478534801715145200B8A750 /* backbutton.psd in Resources */,
+				477D01D0171D348500DAE169 /* Building.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +357,6 @@
 			files = (
 				A7D0547A16DFDC53007142C1 /* InfoPlist.strings in Resources */,
 				478534811715145200B8A750 /* backbutton.psd in Resources */,
-				470CF0F6171BAB8F00001701 /* gridViewGrid.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +502,7 @@
 				GCC_PREFIX_HEADER = "Clipboard/Clipboard-Prefix.pch";
 				INFOPLIST_FILE = "Clipboard/Clipboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -513,6 +514,7 @@
 				GCC_PREFIX_HEADER = "Clipboard/Clipboard-Prefix.pch";
 				INFOPLIST_FILE = "Clipboard/Clipboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

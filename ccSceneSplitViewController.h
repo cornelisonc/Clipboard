@@ -18,7 +18,6 @@
 //@property (nonatomic, strong) ccGridViewController *gridViewController;
 //@property (nonatomic, strong) ccSelectSceneViewController * selectSceneViewController;
 @property (nonatomic, strong) ccDetailViewController *detailViewController;
-@property (nonatomic, strong) ccGridView *gridView;
 @property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
