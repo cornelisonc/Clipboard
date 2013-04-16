@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		477143EC170DF46600951B7E /* ccGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EB170DF46600951B7E /* ccGridViewController.m */; };
 		477143EF170DF55B00951B7E /* ccGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EE170DF55B00951B7E /* ccGridView.m */; };
 		477D01D0171D348500DAE169 /* Building.png in Resources */ = {isa = PBXBuildFile; fileRef = 477D01CF171D348500DAE169 /* Building.png */; };
 		4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4785347D17150C1800B8A750 /* ccDetailViewController.m */; };
@@ -48,8 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		477143EA170DF46600951B7E /* ccGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridViewController.h; sourceTree = "<group>"; };
-		477143EB170DF46600951B7E /* ccGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridViewController.m; sourceTree = "<group>"; };
 		477143ED170DF55B00951B7E /* ccGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccGridView.h; sourceTree = "<group>"; };
 		477143EE170DF55B00951B7E /* ccGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccGridView.m; sourceTree = "<group>"; };
 		477D01CF171D348500DAE169 /* Building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Building.png; sourceTree = "<group>"; };
@@ -133,8 +130,6 @@
 				47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */,
 				4785347C17150C1800B8A750 /* ccDetailViewController.h */,
 				4785347D17150C1800B8A750 /* ccDetailViewController.m */,
-				477143EA170DF46600951B7E /* ccGridViewController.h */,
-				477143EB170DF46600951B7E /* ccGridViewController.m */,
 			);
 			name = SceneSplit;
 			sourceTree = "<group>";
@@ -393,7 +388,6 @@
 				49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */,
 				47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */,
 				47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */,
-				477143EC170DF46600951B7E /* ccGridViewController.m in Sources */,
 				477143EF170DF55B00951B7E /* ccGridView.m in Sources */,
 				4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */,
 			);
