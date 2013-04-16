@@ -10,31 +10,14 @@
 
 @interface ccSelectSceneViewController ()
 
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
+@property (nonatomic, strong) NSMutableArray *downloads;
+
 @end
 
 @implementation ccSelectSceneViewController
 
-/*
-- (void)loadView
-{
 
-    //Init the main view
-	ccSelectSceneView *selectSceneView = [[ccSelectSceneView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-	self.selectSceneView = selectSceneView;
-	selectSceneView.owner = self;
-    
-    //Init the imageView
-    self.logoImageView = selectSceneView.logoImageView;
-
-    //Init the tableView
-    
-    self.selectSceneTableView = selectSceneView.selectSceneTableView;
-    self.selectSceneTableView.delegate = self;
-    self.selectSceneTableView.dataSource = self;
-    self.nameLabel = selectSceneView.nameLabel;
-	self.view = selectSceneView;
-}
- */
 
 - (void)viewDidLoad
 {
@@ -44,16 +27,43 @@
     static NSString *CellIdentifier = @"Cell";
 	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireInstanceDidParseNotification" object:nil];
+    
+    //set up and configure an operation queue so processing does not happen on the main thread.
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    [self.operationQueue setMaxConcurrentOperationCount:3];
+    
+    //set up data
+    [self setupScenes];
+    
     
     
 }
+
+#pragma mark - Actions
+
+- (void)respondToInstanceParse:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    self.scene = userInfo[@"instances"];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self.tableView reloadData];
+	}];
+    
+}
+
+-(void)setupScenes
+{
+    
+}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    NSLog(@"numberOfSectionsInTableView");
     return 1;
 }
 
@@ -65,7 +75,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"tableview building cell");
     static NSString *CellIdentifier = @"Cell";
     ccSelectSceneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
@@ -82,11 +91,10 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ccSceneSplitViewController *detailViewController = [[ccSceneSplitViewController alloc] init];
     //detailViewController.title = self.nameLabel[indexPath.row];
     // ...
     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import "ccAppDelegate.h"
-#import "ccSelectSceneViewController.h"
-
+#import "ccSceneSplitViewController.h"
+#import "ccDetailViewController.h"
 
 @implementation ccAppDelegate
 
@@ -16,16 +16,26 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
     
-	// Our window needs a root view controller. Otherwise it has nothing to show. Let's create a view controller and set it
-	// as the root controller for our window.
-	ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:selectSceneViewController];
-	[self.window setRootViewController:navController];
-	
+	//Create a MasterView controller 
+    ccSceneSplitViewController *sceneSplitViewController = [[ccSceneSplitViewController alloc] init];
+    UINavigationController *sceneSplitViewNavController = [[UINavigationController alloc] initWithRootViewController:sceneSplitViewController];
+  
+    //Create a DetailView controller
+    ccDetailViewController *detailViewController = [[ccDetailViewController alloc] init];
+    UINavigationController *detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    
+    sceneSplitViewController.detailViewController = detailViewController;
+    
+    self.splitViewController = [[UISplitViewController alloc] init];
+    self.splitViewController.delegate = detailViewController;
+    self.splitViewController.viewControllers = @[sceneSplitViewNavController, detailNavController];
+    self.window.rootViewController = self.splitViewController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -47,6 +57,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    ccInstanceProvider *provider = [[ccInstanceProvider alloc] init];
+    [provider fetchInstance];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

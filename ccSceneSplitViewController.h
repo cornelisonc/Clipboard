@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "ccGridViewController.h"
+#import "ccDetailViewController.h"
+#import "ccSelectSceneViewController.h"
 
-@interface ccSceneSplitViewController : UISplitViewController
+@class ccGridViewController;
 
-@property (nonatomic, strong) UITabBarController *tabBarController;
-@property (nonatomic, strong) UIViewController *viewController;
+@interface ccSceneSplitViewController : UITableViewController
+
+//@property (nonatomic, strong) ccGridViewController *gridViewController;
+//@property (nonatomic, strong) ccSelectSceneViewController * selectSceneViewController;
+@property (nonatomic, strong) ccDetailViewController *detailViewController;
+@property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+
 
 @end
