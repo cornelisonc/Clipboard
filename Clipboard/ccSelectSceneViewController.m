@@ -46,7 +46,6 @@
 {
     NSDictionary *userInfo = notification.userInfo;
     self.scene = userInfo[@"instances"];
-    
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 		[self.tableView reloadData];
 	}];

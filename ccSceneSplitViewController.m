@@ -24,7 +24,7 @@ NSMutableArray *_objects;
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     // to display selectSceneViewController
     [self presentViewController:selectSceneViewController animated:YES completion: nil];
-
+    
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -108,7 +108,7 @@ NSMutableArray *_objects;
             return 10;
             break;
         case 1:
-            return 10;
+            return 2;
             break;
         case 2:
             return 10;

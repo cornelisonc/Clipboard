@@ -69,7 +69,7 @@
     if(!_timeLabel){
 
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 114.5f, 74)];
-		[_timeLabel setBackgroundColor: [UIColor whiteColor]];
+		[_timeLabel setBackgroundColor: [UIColor grayColor]];
 		[_timeLabel setTextColor:[UIColor redColor]];
         [_timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
 
@@ -84,7 +84,7 @@
     if(!_timerLabel){
         
         _timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(114.5f, 0, 114.5f, 74)];
-		[_timerLabel setBackgroundColor: [UIColor whiteColor]];
+		[_timerLabel setBackgroundColor: [UIColor grayColor]];
 		[_timerLabel setTextColor:[UIColor redColor]];
         [_timerLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -99,7 +99,7 @@
     if(!_locationLabel){
         
         _locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(229, 0, 475, 74)];
-		[_locationLabel setBackgroundColor: [UIColor whiteColor]];
+		[_locationLabel setBackgroundColor: [UIColor grayColor]];
 		[_locationLabel setTextColor:[UIColor redColor]];
         [_locationLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -114,7 +114,7 @@
     if(!_buildingLabel){
         
         _buildingLabel = [[UILabel alloc] initWithFrame:CGRectMake(704, 0, 475, 74)];
-		[_buildingLabel setBackgroundColor: [UIColor whiteColor]];
+		[_buildingLabel setBackgroundColor: [UIColor grayColor]];
 		[_buildingLabel setTextColor:[UIColor redColor]];
         [_buildingLabel setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
         
@@ -129,7 +129,7 @@
     if(!_typeOfFireLabel){
         
         _typeOfFireLabel = [[UILabel alloc] initWithFrame:CGRectMake(1179, 0, 232.5f, 74)];
-		[_typeOfFireLabel setBackgroundColor: [UIColor whiteColor]];
+		[_typeOfFireLabel setBackgroundColor: [UIColor grayColor]];
 		[_typeOfFireLabel setTextColor:[UIColor redColor]];
         [_typeOfFireLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -144,7 +144,7 @@
     if(!_commanderLabel){
         
         _commanderLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, 232, 74)];
-		[_commanderLabel setBackgroundColor: [UIColor whiteColor]];
+		[_commanderLabel setBackgroundColor: [UIColor grayColor]];
 		[_commanderLabel setTextColor:[UIColor redColor]];
         [_commanderLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -158,7 +158,7 @@
     if(!_commandAideLabel){
         
         _commandAideLabel = [[UILabel alloc] initWithFrame:CGRectMake(232, 74, 232, 74)];
-		[_commandAideLabel setBackgroundColor: [UIColor whiteColor]];
+		[_commandAideLabel setBackgroundColor: [UIColor grayColor]];
 		[_commandAideLabel setTextColor:[UIColor redColor]];
         [_commandAideLabel setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
         
@@ -173,7 +173,7 @@
     if(!_safetyOfficerLabel){
         
         _safetyOfficerLabel = [[UILabel alloc] initWithFrame:CGRectMake(465, 74, 232.5f, 74)];
-		[_safetyOfficerLabel setBackgroundColor: [UIColor whiteColor]];
+		[_safetyOfficerLabel setBackgroundColor: [UIColor grayColor]];
 		[_safetyOfficerLabel setTextColor:[UIColor redColor]];
         [_safetyOfficerLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -188,7 +188,7 @@
     if(!_PIOLabel){
         
         _PIOLabel = [[UILabel alloc] initWithFrame:CGRectMake(697.5f, 74, 232.5f, 74)];
-		[_PIOLabel setBackgroundColor: [UIColor whiteColor]];
+		[_PIOLabel setBackgroundColor: [UIColor grayColor]];
 		[_PIOLabel setTextColor:[UIColor redColor]];
         [_PIOLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -203,7 +203,7 @@
     if(!_fireInvestigatorLabel){
         
         _fireInvestigatorLabel = [[UILabel alloc] initWithFrame:CGRectMake(930, 74, 232.5f, 74)];
-		[_fireInvestigatorLabel setBackgroundColor: [UIColor whiteColor]];
+		[_fireInvestigatorLabel setBackgroundColor: [UIColor grayColor]];
 		[_fireInvestigatorLabel setTextColor:[UIColor redColor]];
         [_fireInvestigatorLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
@@ -218,7 +218,7 @@
     if(!_strategyLabel){
         
         _strategyLabel = [[UILabel alloc] initWithFrame:CGRectMake(1162.5f, 74, 232.5f, 74)];
-		[_strategyLabel setBackgroundColor: [UIColor whiteColor]];
+		[_strategyLabel setBackgroundColor: [UIColor grayColor]];
 		[_strategyLabel setTextColor:[UIColor blackColor]];
         [_strategyLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
         
