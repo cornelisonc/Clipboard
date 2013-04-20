@@ -10,8 +10,8 @@
 
 @interface ccGridView : UIView
 
-@property (nonatomic, strong) UIView *gridView;
 @property (nonatomic, strong) id owner;
+@property (nonatomic, strong) UIView *gridView;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *timerLabel;
 @property (nonatomic, strong) UILabel *locationLabel;
@@ -23,7 +23,5 @@
 @property (nonatomic, strong) UILabel *PIOLabel;
 @property (nonatomic, strong) UILabel *fireInvestigatorLabel;
 @property (nonatomic, strong) UILabel *strategyLabel;
-
-
 
 @end

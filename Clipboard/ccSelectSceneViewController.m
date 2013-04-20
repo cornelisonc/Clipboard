@@ -17,7 +17,15 @@
 
 @implementation ccSelectSceneViewController
 
-
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -35,8 +43,6 @@
     
     //set up data
     [self setupScenes];
-    
-    
     
 }
 
@@ -58,7 +64,29 @@
 }
 
 
+
 #pragma mark - Table view data source
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    NSLog(@"%f", self.view.bounds.size.height);
+
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
+    
+    [headerView addSubview:_logoImageView];
+    return headerView; 
+    
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+  
+    NSLog(@"%f", _logoImageView.frame.size.height);
+
+   return  _logoImageView.frame.size.height;
+
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -71,6 +99,8 @@
     // Return the number of rows in the section.
     return 15;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

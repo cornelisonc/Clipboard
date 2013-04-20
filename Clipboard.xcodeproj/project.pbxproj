@@ -10,8 +10,13 @@
 		477143EF170DF55B00951B7E /* ccGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477143EE170DF55B00951B7E /* ccGridView.m */; };
 		477D01D0171D348500DAE169 /* Building.png in Resources */ = {isa = PBXBuildFile; fileRef = 477D01CF171D348500DAE169 /* Building.png */; };
 		4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4785347D17150C1800B8A750 /* ccDetailViewController.m */; };
-		478534801715145200B8A750 /* backbutton.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4785347F1715145200B8A750 /* backbutton.psd */; };
-		478534811715145200B8A750 /* backbutton.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4785347F1715145200B8A750 /* backbutton.psd */; };
+		47CD2689171E260600B1AD10 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD2688171E260600B1AD10 /* logo.png */; };
+		47CD268A171E260600B1AD10 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD2688171E260600B1AD10 /* logo.png */; };
+		47CD268C171E264300B1AD10 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD268B171E264300B1AD10 /* backbutton.png */; };
+		47CD268D171E264300B1AD10 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD268B171E264300B1AD10 /* backbutton.png */; };
+		47CD6962171FAB830072AF1E /* Building V2.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD6961171FAB830072AF1E /* Building V2.png */; };
+		47CD6966172069790072AF1E /* background-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD6965172069790072AF1E /* background-app.png */; };
+		47CD696817206AF90072AF1E /* background building smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD696717206AF90072AF1E /* background building smaller.png */; };
 		47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */; };
 		47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */; };
 		49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */; };
@@ -52,7 +57,11 @@
 		477D01CF171D348500DAE169 /* Building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Building.png; sourceTree = "<group>"; };
 		4785347C17150C1800B8A750 /* ccDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccDetailViewController.h; sourceTree = "<group>"; };
 		4785347D17150C1800B8A750 /* ccDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccDetailViewController.m; sourceTree = "<group>"; };
-		4785347F1715145200B8A750 /* backbutton.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = backbutton.psd; path = ../../../Library/Containers/com.apple.Preview/Data/Downloads/backbutton.psd; sourceTree = "<group>"; };
+		47CD2688171E260600B1AD10 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		47CD268B171E264300B1AD10 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
+		47CD6961171FAB830072AF1E /* Building V2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Building V2.png"; sourceTree = "<group>"; };
+		47CD6965172069790072AF1E /* background-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-app.png"; sourceTree = "<group>"; };
+		47CD696717206AF90072AF1E /* background building smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background building smaller.png"; sourceTree = "<group>"; };
 		47E43AB5170A7C89001FC598 /* ccSelectSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneCell.h; sourceTree = "<group>"; };
 		47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneCell.m; sourceTree = "<group>"; };
 		47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccSceneSplitViewController.h; path = ../ccSceneSplitViewController.h; sourceTree = "<group>"; };
@@ -235,8 +244,12 @@
 				A7D0546116DFDC53007142C1 /* ccAppDelegate.m */,
 				A7D0545916DFDC53007142C1 /* Clipboard-Info.plist */,
 				A7D0545A16DFDC53007142C1 /* InfoPlist.strings */,
-				4785347F1715145200B8A750 /* backbutton.psd */,
+				47CD268B171E264300B1AD10 /* backbutton.png */,
+				47CD2688171E260600B1AD10 /* logo.png */,
 				477D01CF171D348500DAE169 /* Building.png */,
+				47CD6961171FAB830072AF1E /* Building V2.png */,
+				47CD6965172069790072AF1E /* background-app.png */,
+				47CD696717206AF90072AF1E /* background building smaller.png */,
 				A7D0545D16DFDC53007142C1 /* main.m */,
 				A7D0545F16DFDC53007142C1 /* Clipboard-Prefix.pch */,
 				A7D0546316DFDC53007142C1 /* Default.png */,
@@ -341,8 +354,12 @@
 				A7D0546416DFDC53007142C1 /* Default.png in Resources */,
 				A7D0546616DFDC53007142C1 /* Default@2x.png in Resources */,
 				A7D0546816DFDC53007142C1 /* Default-568h@2x.png in Resources */,
-				478534801715145200B8A750 /* backbutton.psd in Resources */,
 				477D01D0171D348500DAE169 /* Building.png in Resources */,
+				47CD2689171E260600B1AD10 /* logo.png in Resources */,
+				47CD268C171E264300B1AD10 /* backbutton.png in Resources */,
+				47CD6962171FAB830072AF1E /* Building V2.png in Resources */,
+				47CD6966172069790072AF1E /* background-app.png in Resources */,
+				47CD696817206AF90072AF1E /* background building smaller.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7D0547A16DFDC53007142C1 /* InfoPlist.strings in Resources */,
-				478534811715145200B8A750 /* backbutton.psd in Resources */,
+				47CD268A171E260600B1AD10 /* logo.png in Resources */,
+				47CD268D171E264300B1AD10 /* backbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

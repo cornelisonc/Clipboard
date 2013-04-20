@@ -17,7 +17,6 @@
     if (self) {
         // Initialization code
         [self addSubview:self.logoImageView];
-        [self addSubview:self.selectSceneTableView];
     }
     return self;
 }
@@ -25,37 +24,18 @@
 - (UIImageView *)logoImageView
 {
     if (!_logoImageView) {
-        _logoImageView = [[UIImageView alloc] init];
+        UIImage *logo = [UIImage imageNamed:@"logo.png"];
+        _logoImageView = [[UIImageView alloc] initWithImage:logo];
         
-        [_logoImageView setFrame:CGRectMake(140, 0, [UIScreen mainScreen].bounds.size.width, 160)];
+        [_logoImageView setFrame:CGRectMake(140, 0, logo.size.width, logo.size.height)];
         
         [_logoImageView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         
         [_logoImageView setBackgroundColor:[UIColor redColor]];
     }
-    
     return _logoImageView;
 }
 
-- (UITableView *)selectSceneTableView
-{
-    
-    if(!_selectSceneTableView){
-        
-        
-        
-        _selectSceneTableView = [[UITableView alloc] init];
-        
-        [_selectSceneTableView setFrame:CGRectMake(140, 160, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        
-        
-        [_selectSceneTableView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-    
-        
-    }
-
-    return _selectSceneTableView;
-}
 
 
 

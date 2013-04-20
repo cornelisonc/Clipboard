@@ -16,6 +16,30 @@ NSMutableArray *_objects;
 
 @implementation ccSceneSplitViewController
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization        
+    }
+    return self;
+}
+
+
+- (void)loadView
+{
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen
+                                                                  mainScreen] applicationFrame] style:UITableViewStylePlain];
+    tableView.autoresizingMask =
+    UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView reloadData];
+    self.view = tableView;
+
+
+}
 
 - (void)viewDidLoad
 {
@@ -24,7 +48,6 @@ NSMutableArray *_objects;
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     // to display selectSceneViewController
     [self presentViewController:selectSceneViewController animated:YES completion: nil];
-    
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -38,7 +61,8 @@ NSMutableArray *_objects;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     */
-
+    
+    
     [self initSegmentControl];
     
     [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
@@ -51,7 +75,7 @@ NSMutableArray *_objects;
 - (void)initBackButton
 {
     
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
+    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
     [self.navigationItem setLeftBarButtonItem:backButton];
     
@@ -87,12 +111,8 @@ NSMutableArray *_objects;
 {
     
     [self.tableView reloadData];
-    
-    
+
 }
-
-
-
 
 #pragma mark - Table View
 

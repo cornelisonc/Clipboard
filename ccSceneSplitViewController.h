@@ -13,11 +13,10 @@
 
 @class ccGridViewController;
 
-@interface ccSceneSplitViewController : UITableViewController
+@interface ccSceneSplitViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-//@property (nonatomic, strong) ccGridViewController *gridViewController;
-//@property (nonatomic, strong) ccSelectSceneViewController * selectSceneViewController;
 @property (nonatomic, strong) ccDetailViewController *detailViewController;
+@property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
