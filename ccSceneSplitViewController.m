@@ -52,15 +52,19 @@ NSMutableArray *_objects;
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //Init Back Button
+    //Init Buttons
     [self initBackButton];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem *editButton = self.editButtonItem;
+    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.rightBarButtonItem = parButton;
     
-    //Uncomment to display add icon
-    /*
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    */
+    [self.navigationController setToolbarHidden:NO];
+    [self setToolbarItems:[NSArray arrayWithObjects:deleteButton,editButton, nil] animated:NO];
+    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,70,320,44)];
+    [[self tableView] setTableHeaderView:testbar];
+
     
     
     [self initSegmentControl];
