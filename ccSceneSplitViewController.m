@@ -37,6 +37,8 @@ NSMutableArray *_objects;
     tableView.dataSource = self;
     [tableView reloadData];
     self.view = tableView;
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    [self presentViewController:selectSceneViewController animated:YES completion: nil];
 
 
 }
@@ -45,9 +47,7 @@ NSMutableArray *_objects;
 {
     [super viewDidLoad];
     
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     // to display selectSceneViewController
-    [self presentViewController:selectSceneViewController animated:YES completion: nil];
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -62,15 +62,14 @@ NSMutableArray *_objects;
     
     [self.navigationController setToolbarHidden:NO];
     [self setToolbarItems:[NSArray arrayWithObjects:deleteButton,editButton, nil] animated:NO];
-    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,70,320,44)];
-    [[self tableView] setTableHeaderView:testbar];
-
+    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,44)];
+    [self.tableView setTableHeaderView:testbar];
+    
     
     
     [self initSegmentControl];
     
     [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-
 
 }
 
