@@ -22,6 +22,7 @@
 		47CD696817206AF90072AF1E /* background building smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD696717206AF90072AF1E /* background building smaller.png */; };
 		47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */; };
 		47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */; };
+		47F111791725B7D0002D176B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F111781725B7D0002D176B /* QuartzCore.framework */; };
 		49468CE816F7E1E600D09587 /* ccInstanceLogUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */; };
 		49E5EA7716F793C2005C9788 /* ccFireInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7616F793C2005C9788 /* ccFireInstance.m */; };
 		49E5EA7A16F793DF005C9788 /* ccInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E5EA7916F793DF005C9788 /* ccInstanceProvider.m */; };
@@ -72,6 +73,7 @@
 		47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneCell.m; sourceTree = "<group>"; };
 		47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccSceneSplitViewController.h; path = ../ccSceneSplitViewController.h; sourceTree = "<group>"; };
 		47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ccSceneSplitViewController.m; path = ../ccSceneSplitViewController.m; sourceTree = "<group>"; };
+		47F111781725B7D0002D176B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		49468CE616F7E1E600D09587 /* ccInstanceLogUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccInstanceLogUploader.h; sourceTree = "<group>"; };
 		49468CE716F7E1E600D09587 /* ccInstanceLogUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccInstanceLogUploader.m; sourceTree = "<group>"; };
 		49E5EA7516F793C2005C9788 /* ccFireInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFireInstance.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F111791725B7D0002D176B /* QuartzCore.framework in Frameworks */,
 				A7D0545216DFDC53007142C1 /* UIKit.framework in Frameworks */,
 				A7D0545416DFDC53007142C1 /* Foundation.framework in Frameworks */,
 				A7D0545616DFDC53007142C1 /* CoreGraphics.framework in Frameworks */,
@@ -224,6 +227,7 @@
 		A7D0545016DFDC53007142C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47F111781725B7D0002D176B /* QuartzCore.framework */,
 				A7D0545116DFDC53007142C1 /* UIKit.framework */,
 				A7D0545316DFDC53007142C1 /* Foundation.framework */,
 				A7D0545516DFDC53007142C1 /* CoreGraphics.framework */,

@@ -20,7 +20,11 @@ NSMutableArray *_objects;
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            self.clearsSelectionOnViewWillAppear = NO;
+            self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+        }
+        
     }
     return self;
 }
@@ -53,7 +57,6 @@ NSMutableArray *_objects;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //Init Buttons
-    [self initBackButton];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
     UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
     UIBarButtonItem *editButton = self.editButtonItem;
@@ -75,14 +78,7 @@ NSMutableArray *_objects;
 
 #pragma mark - Init
 
-- (void)initBackButton
-{
-    
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.png"];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    
-}
+
 
 - (void)initSegmentControl
 {
