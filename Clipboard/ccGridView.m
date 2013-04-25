@@ -46,7 +46,7 @@ float largeLabelWidth = 0.0f;
         
         //add view to view heirarchy
         [self addSubview:self.gridView];
-        [self addSubview:self.timeLabel];
+//        [self addSubview:self.timeLabel];
         [self addSubview:self.timerLabel];
         [self addSubview:self.locationLabel];
         [self addSubview:self.buildingLabel];
@@ -142,12 +142,12 @@ float largeLabelWidth = 0.0f;
     if(!_timerLabel){
         
         CGPoint labelOrigin;
-        labelOrigin.x = self.timeLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.x = 0;
         labelOrigin.y = 0.0f;
         NSLog(@"timerlabelOrigin %f", labelOrigin.x);
         
         CGSize labelSize;
-        labelSize.width = smallLabelWidth;
+        labelSize.width = mediumLabelWidth;
         labelSize.height = labelHeight;
         CGRect labelRect;
         labelRect.origin = labelOrigin;
