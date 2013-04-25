@@ -46,7 +46,6 @@ float largeLabelWidth = 0.0f;
         
         //add view to view heirarchy
         [self addSubview:self.gridView];
-//        [self addSubview:self.timeLabel];
         [self addSubview:self.timerLabel];
         [self addSubview:self.locationLabel];
         [self addSubview:self.buildingLabel];
@@ -106,35 +105,6 @@ float largeLabelWidth = 0.0f;
     
     return _gridView;
     
-}
-
-
-- (UIButton *)timeLabel
-{
-    
-    if(!_timeLabel){
-        
-        CGPoint labelOrigin;
-        labelOrigin.x = 0.0f;
-        labelOrigin.y = 0.0f;
-        
-        CGSize labelSize;
-        labelSize.width = smallLabelWidth;
-        labelSize.height = labelHeight;
-        
-        CGRect labelRect;
-        labelRect.origin = labelOrigin;
-        labelRect.size = labelSize;
-        
-        _timeLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_timeLabel setFrame:labelRect];
-        [_timeLabel setTitle:@"Time" forState:UIControlStateNormal];
-        [_timeLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_timeLabel setBackgroundImage:_smallLabelImage    forState:UIControlStateNormal];
-
-    }
-    
-    return _timeLabel;
 }
 
 - (UIButton *)timerLabel
