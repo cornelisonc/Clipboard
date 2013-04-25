@@ -10,6 +10,7 @@
 #import "ccSelectSceneCell.h"
 #import "ccSceneSplitViewController.h"
 #import "ccFireInstance.h"
+#import "ccInstanceProvider.h"
 
 
 @interface ccSelectSceneViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>

@@ -55,7 +55,7 @@ NSMutableArray *_objects;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //Init Buttons
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(homeButtonPressed:)];
     UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
     UIBarButtonItem *editButton = self.editButtonItem;
     UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:nil];
@@ -105,15 +105,17 @@ NSMutableArray *_objects;
 
 #pragma mark - Actions
 
-- (void)backButtonPressed:(id)sender
+- (void)homeButtonPressed:(id)sender
 {
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    [self presentViewController:selectSceneViewController animated:YES completion:nil];
+    
+    
+    [self presentViewController:selectSceneViewController animated:YES completion: nil];
 }
 
 
 
--(IBAction)segmentAction:(id)sender
+-(void)segmentAction:(id)sender
 {
     
     [self.tableView reloadData];

@@ -19,8 +19,8 @@
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
-@property (nonatomic, strong) IBOutlet UISwitch *onoff;
-- (IBAction)flip:(id)sender;
+@property (nonatomic, strong) UISwitch *onoff;
+- (void)flip:(id)sender;
 
 
 

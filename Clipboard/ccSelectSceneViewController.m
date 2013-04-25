@@ -11,7 +11,6 @@
 @interface ccSelectSceneViewController ()
 
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
-@property (nonatomic, strong) NSMutableArray *downloads;
 
 @end
 
@@ -24,6 +23,7 @@
         // Custom initialization
         
     }
+
     return self;
 }
 
@@ -44,6 +44,8 @@
     
     static NSString *CellIdentifier = @"Cell";
 	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
+    ccInstanceProvider *provider = [[ccInstanceProvider alloc] init];
+    [provider fetchInstance];
     
 }
 
@@ -58,7 +60,7 @@
 	}];
     
 
-
+}
 
 
 
@@ -68,8 +70,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
     
-    //UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _logoImageView.frame.size.width, _logoImageView.frame.size.height)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
+
     
     [headerView addSubview:_logoImageView];
     return headerView; 
@@ -92,7 +94,6 @@
 {
     // Return the number of rows in the section.
     return self.fireInstance.count;
-    //NSLog(@"scene.count %lu", (unsigned long)_scene.count);
 }
 
 
