@@ -40,9 +40,6 @@ float largeLabelWidth = 0.0f;
         _mediumLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"medium.png"]];
         _largeLabelImagel = [UIImage imageNamed:[NSString stringWithFormat:@"large.png"]];
         
-        NSLog(@"mediumLabelWidth %f", smallLabelWidth);
-        NSLog(@"largeLabelWidth %f", largeLabelWidth);
-
         
         //add view to view heirarchy
         [self addSubview:self.gridView];
@@ -114,7 +111,6 @@ float largeLabelWidth = 0.0f;
         CGPoint labelOrigin;
         labelOrigin.x = 0;
         labelOrigin.y = 0.0f;
-        NSLog(@"timerlabelOrigin %f", labelOrigin.x);
         
         CGSize labelSize;
         labelSize.width = mediumLabelWidth;
@@ -141,7 +137,6 @@ float largeLabelWidth = 0.0f;
         CGPoint labelOrigin;
         labelOrigin.x = self.timerLabel.frame.origin.x + self.timerLabel.frame.size.width + spaceBetweenLabels;
         labelOrigin.y = 0.0f;
-        NSLog(@"locationlabelOrigin %f", labelOrigin.x);
 
         CGSize labelSize;
         labelSize.width = largeLabelWidth;
@@ -169,9 +164,7 @@ float largeLabelWidth = 0.0f;
         
         CGPoint labelOrigin;
         labelOrigin.x = self.locationLabel.frame.origin.x + self.locationLabel.frame.size.width + spaceBetweenLabels;
-        NSLog(@"spaceBetweenLabels %f", spaceBetweenLabels);
         labelOrigin.y = 0.0f;
-        NSLog(@"buildinglabelOrigin %f", labelOrigin.x);
 
         
         CGSize labelSize;
