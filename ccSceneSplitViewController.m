@@ -41,8 +41,6 @@ NSMutableArray *_objects;
     tableView.dataSource = self;
     [tableView reloadData];
     self.view = tableView;
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    [self presentViewController:selectSceneViewController animated:YES completion: nil];
 
 
 }
@@ -76,6 +74,15 @@ NSMutableArray *_objects;
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    
+    
+    [self presentViewController:selectSceneViewController animated:YES completion: nil];
+ 
+}
+
 #pragma mark - Init
 
 
@@ -98,7 +105,7 @@ NSMutableArray *_objects;
 
 #pragma mark - Actions
 
-- (IBAction)backButtonPressed:(id)sender
+- (void)backButtonPressed:(id)sender
 {
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     [self presentViewController:selectSceneViewController animated:YES completion:nil];

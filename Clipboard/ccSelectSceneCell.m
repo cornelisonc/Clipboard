@@ -19,7 +19,7 @@
 {
 	if (!_nameLabel) {
 		_nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, 220.0f, 44.0f)];
-		[_nameLabel setBackgroundColor: [UIColor blueColor]];
+		[_nameLabel setBackgroundColor: [UIColor whiteColor]];
 		[_nameLabel setTextColor:[UIColor blackColor]];
 	}
 	return _nameLabel;

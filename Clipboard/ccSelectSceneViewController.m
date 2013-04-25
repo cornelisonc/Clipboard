@@ -27,13 +27,14 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    static NSString *CellIdentifier = @"Cell";
-	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireInstanceDidParseNotification" object:nil];
     
@@ -41,8 +42,8 @@
     self.operationQueue = [[NSOperationQueue alloc] init];
     [self.operationQueue setMaxConcurrentOperationCount:3];
     
-    //set up data
-    [self setupScenes];
+    static NSString *CellIdentifier = @"Cell";
+	[self.tableView registerClass:[ccSelectSceneCell class] forCellReuseIdentifier:CellIdentifier];
     
 }
 
@@ -51,28 +52,24 @@
 - (void)respondToInstanceParse:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    self.scene = userInfo[@"instances"];
+    self.fireInstance = userInfo[@"instances"];
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 		[self.tableView reloadData];
 	}];
     
-}
 
--(void)setupScenes
-{
-    
-}
+
+
 
 
 
 #pragma mark - Table view data source
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    NSLog(@"%f", self.view.bounds.size.height);
 
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
+    //UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _logoImageView.frame.size.width, _logoImageView.frame.size.height)];
     
     [headerView addSubview:_logoImageView];
     return headerView; 
@@ -81,9 +78,6 @@
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-  
-    NSLog(@"%f", _logoImageView.frame.size.height);
-
    return  _logoImageView.frame.size.height;
 
 }
@@ -97,19 +91,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 15;
+    return self.fireInstance.count;
+    //NSLog(@"scene.count %lu", (unsigned long)_scene.count);
 }
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //tell the tableview to provide us with a resuable table cell.
     static NSString *CellIdentifier = @"Cell";
     ccSelectSceneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
-    cell.textLabel.text = [NSString  stringWithFormat:@"Cell Row #%d", [indexPath row]];
     
+    //configure the cell
+    ccFireInstance *fireInstance = self.fireInstance[indexPath.row];
+    cell.nameLabel.text = fireInstance.location;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
+
     
     return cell;
 }
