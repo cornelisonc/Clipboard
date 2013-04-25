@@ -40,13 +40,9 @@ float largeLabelWidth = 0.0f;
         _mediumLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"medium.png"]];
         _largeLabelImagel = [UIImage imageNamed:[NSString stringWithFormat:@"large.png"]];
         
-        NSLog(@"mediumLabelWidth %f", smallLabelWidth);
-        NSLog(@"largeLabelWidth %f", largeLabelWidth);
-
         
         //add view to view heirarchy
         [self addSubview:self.gridView];
-        [self addSubview:self.timeLabel];
         [self addSubview:self.timerLabel];
         [self addSubview:self.locationLabel];
         [self addSubview:self.buildingLabel];
@@ -108,46 +104,16 @@ float largeLabelWidth = 0.0f;
     
 }
 
-
-- (UIButton *)timeLabel
-{
-    
-    if(!_timeLabel){
-        
-        CGPoint labelOrigin;
-        labelOrigin.x = 0.0f;
-        labelOrigin.y = 0.0f;
-        
-        CGSize labelSize;
-        labelSize.width = smallLabelWidth;
-        labelSize.height = labelHeight;
-        
-        CGRect labelRect;
-        labelRect.origin = labelOrigin;
-        labelRect.size = labelSize;
-        
-        _timeLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_timeLabel setFrame:labelRect];
-        [_timeLabel setTitle:@"Time" forState:UIControlStateNormal];
-        [_timeLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_timeLabel setBackgroundImage:_smallLabelImage    forState:UIControlStateNormal];
-
-    }
-    
-    return _timeLabel;
-}
-
 - (UIButton *)timerLabel
 {
     if(!_timerLabel){
         
         CGPoint labelOrigin;
-        labelOrigin.x = self.timeLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.x = 0;
         labelOrigin.y = 0.0f;
-        NSLog(@"timerlabelOrigin %f", labelOrigin.x);
         
         CGSize labelSize;
-        labelSize.width = smallLabelWidth;
+        labelSize.width = mediumLabelWidth;
         labelSize.height = labelHeight;
         CGRect labelRect;
         labelRect.origin = labelOrigin;
@@ -171,7 +137,6 @@ float largeLabelWidth = 0.0f;
         CGPoint labelOrigin;
         labelOrigin.x = self.timerLabel.frame.origin.x + self.timerLabel.frame.size.width + spaceBetweenLabels;
         labelOrigin.y = 0.0f;
-        NSLog(@"locationlabelOrigin %f", labelOrigin.x);
 
         CGSize labelSize;
         labelSize.width = largeLabelWidth;
@@ -199,9 +164,7 @@ float largeLabelWidth = 0.0f;
         
         CGPoint labelOrigin;
         labelOrigin.x = self.locationLabel.frame.origin.x + self.locationLabel.frame.size.width + spaceBetweenLabels;
-        NSLog(@"spaceBetweenLabels %f", spaceBetweenLabels);
         labelOrigin.y = 0.0f;
-        NSLog(@"buildinglabelOrigin %f", labelOrigin.x);
 
         
         CGSize labelSize;

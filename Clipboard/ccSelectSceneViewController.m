@@ -58,7 +58,7 @@
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 		[self.tableView reloadData];
 	}];
-    
+}
 
 }
 
