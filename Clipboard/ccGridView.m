@@ -8,20 +8,41 @@
 
 #import "ccGridView.h"
 
+@interface ccGridView ()
+
+@property (nonatomic, strong) UIImage *smallLabelImage;
+@property (nonatomic, strong) UIImage *mediumLabelImage;
+@property (nonatomic, strong) UIImage *largeLabelImagel;
+
+@end
+
 @implementation ccGridView
 
-- (void)layoutSubviews
-{
-	[super layoutSubviews];
-}
+float labelHeight = 44.0f;
+float smallLabelWidth = 0.0f;
+float mediumLabelWidth = 0.0f;
+float largeLabelWidth = 0.0f;
+#define spaceBetweenLabels 2.5f
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        //set background color of the view.
+        [self setBackgroundColor:[UIColor grayColor]];
+        mediumLabelWidth = self.frame.size.width/6;
+        smallLabelWidth = (mediumLabelWidth / 2) - 2.5;
+        largeLabelWidth = (2 * mediumLabelWidth) - 2.5;
+        mediumLabelWidth = mediumLabelWidth - 2.5;
+        
+        _smallLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"small.png"]];
+        _mediumLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"medium.png"]];
+        _largeLabelImagel = [UIImage imageNamed:[NSString stringWithFormat:@"large.png"]];
+        
+        
+        //add view to view heirarchy
         [self addSubview:self.gridView];
-        [self addSubview:self.timeLabel];
         [self addSubview:self.timerLabel];
         [self addSubview:self.locationLabel];
         [self addSubview:self.buildingLabel];
@@ -32,202 +53,323 @@
         [self addSubview:self.PIOLabel];
         [self addSubview:self.fireInvestigatorLabel];
         [self addSubview:self.strategyLabel];
+         
         [self setClipsToBounds:YES];
+
+      
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)layoutSubviews
 {
-    // Drawing code
+	[super layoutSubviews];
 }
-*/
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
+
 
 - (UIView *)gridView
 {
     if(!_gridView){
         
-        _gridView =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Building.png"]];
-    }
-    
-    [_gridView setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         
-    [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
-    [_gridView setBackgroundColor:[UIColor blueColor]];
-    [self setClipsToBounds:YES];
+        CGPoint gridViewOrigin;
+        gridViewOrigin.x = 0.0f;
+        gridViewOrigin.y = 2 * labelHeight;
+        
+        CGSize gridViewSize;
+        gridViewSize.width = self.frame.size.width;
+        gridViewSize.height = self.frame.size.height - gridViewOrigin.y;
+        
+        CGRect gridViewRect;
+        gridViewRect.origin = gridViewOrigin;
+        gridViewRect.size = gridViewSize;
+        
+        _gridView =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background-app.png"]];
+        [_gridView setFrame:gridViewRect];
+        [_gridView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        [_gridView setBackgroundColor:[UIColor whiteColor]];
+        
+        [self setClipsToBounds:YES];
+    }
     
     return _gridView;
     
 }
 
-- (UILabel *)timeLabel
-{
-
-    if(!_timeLabel){
-
-        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 114.5f, 74)];
-		[_timeLabel setBackgroundColor: [UIColor whiteColor]];
-		[_timeLabel setTextColor:[UIColor redColor]];
-        [_timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
-
-    }
-    [_timeLabel setText:@"Time:"];
-    
-    return _timeLabel;
-}
-
-- (UILabel *)timerLabel
+- (UIButton *)timerLabel
 {
     if(!_timerLabel){
         
-        _timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(114.5f, 0, 114.5f, 74)];
-		[_timerLabel setBackgroundColor: [UIColor whiteColor]];
-		[_timerLabel setTextColor:[UIColor redColor]];
-        [_timerLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = 0;
+        labelOrigin.y = 0.0f;
+        
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _timerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_timerLabel setFrame:labelRect];
+        [_timerLabel setTitle:@"Timer" forState:UIControlStateNormal];
+        [_timerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_timerLabel setBackgroundImage:_smallLabelImage    forState:UIControlStateNormal];
         
     }
-    [_timerLabel setText:@"Timer"];
     
     return _timerLabel;
 }
 
-- (UILabel *)locationLabel
+- (UIButton *)locationLabel
 {
     if(!_locationLabel){
         
-        _locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(229, 0, 475, 74)];
-		[_locationLabel setBackgroundColor: [UIColor whiteColor]];
-		[_locationLabel setTextColor:[UIColor redColor]];
-        [_locationLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.timerLabel.frame.origin.x + self.timerLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = 0.0f;
+
+        CGSize labelSize;
+        labelSize.width = largeLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _locationLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_locationLabel setFrame:labelRect];
+        [_locationLabel setTitle:@"Location" forState:UIControlStateNormal];
+        [_locationLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_locationLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
         
     }
-    [_locationLabel setText:@"Location"];
     
     return _locationLabel;
 }
 
-- (UILabel *)buildingLabel
+- (UIButton *)buildingLabel
 {
     if(!_buildingLabel){
         
-        _buildingLabel = [[UILabel alloc] initWithFrame:CGRectMake(704, 0, 475, 74)];
-		[_buildingLabel setBackgroundColor: [UIColor whiteColor]];
-		[_buildingLabel setTextColor:[UIColor redColor]];
-        [_buildingLabel setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
+        
+        CGPoint labelOrigin;
+        labelOrigin.x = self.locationLabel.frame.origin.x + self.locationLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = 0.0f;
+
+        
+        CGSize labelSize;
+        labelSize.width = largeLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _buildingLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_buildingLabel setFrame:labelRect];
+        [_buildingLabel setTitle:@"Building" forState:UIControlStateNormal];
+        [_buildingLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_buildingLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
         
     }
-    [_buildingLabel setText:@"Building"];
     
     return _buildingLabel;
 }
 
-- (UILabel *)typeOfFireLabel
+- (UIButton *)typeOfFireLabel
 {
     if(!_typeOfFireLabel){
         
-        _typeOfFireLabel = [[UILabel alloc] initWithFrame:CGRectMake(1179, 0, 232.5f, 74)];
-		[_typeOfFireLabel setBackgroundColor: [UIColor whiteColor]];
-		[_typeOfFireLabel setTextColor:[UIColor redColor]];
-        [_typeOfFireLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.buildingLabel.frame.origin.x + self.buildingLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = 0.0f;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _typeOfFireLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_typeOfFireLabel setFrame:labelRect];
+        [_typeOfFireLabel setTitle:@"Type Of Fire" forState:UIControlStateNormal];
+        [_typeOfFireLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_typeOfFireLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
     }
-    [_typeOfFireLabel setText:@"TypeOfFire"];
-    
     return _typeOfFireLabel;
 }
 
-- (UILabel *)commanderLabel
+- (UIButton *)commanderLabel
 {
     if(!_commanderLabel){
         
-        _commanderLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 74, 232, 74)];
-		[_commanderLabel setBackgroundColor: [UIColor whiteColor]];
-		[_commanderLabel setTextColor:[UIColor redColor]];
-        [_commanderLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = 0;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _commanderLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_commanderLabel setFrame:labelRect];
+        [_commanderLabel setTitle:@"Commander" forState:UIControlStateNormal];
+        [_commanderLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_commanderLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
     }
-    [_commanderLabel setText:@"Commander"];
-    
     return _commanderLabel;
 }
 
-- (UILabel *)commandAideLabel{
+- (UIButton *)commandAideLabel{
     if(!_commandAideLabel){
         
-        _commandAideLabel = [[UILabel alloc] initWithFrame:CGRectMake(232, 74, 232, 74)];
-		[_commandAideLabel setBackgroundColor: [UIColor whiteColor]];
-		[_commandAideLabel setTextColor:[UIColor redColor]];
-        [_commandAideLabel setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.commanderLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _commandAideLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_commandAideLabel setFrame:labelRect];
+        [_commandAideLabel setTitle:@"Command Aide" forState:UIControlStateNormal];
+        [_commandAideLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_commandAideLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
     }
-    [_commandAideLabel setText:@"CommandAide"];
-    
     return _commandAideLabel;
 }
 
-- (UILabel *)safetyOfficerLabel 
+- (UIButton *)safetyOfficerLabel
 {
     if(!_safetyOfficerLabel){
         
-        _safetyOfficerLabel = [[UILabel alloc] initWithFrame:CGRectMake(465, 74, 232.5f, 74)];
-		[_safetyOfficerLabel setBackgroundColor: [UIColor whiteColor]];
-		[_safetyOfficerLabel setTextColor:[UIColor redColor]];
-        [_safetyOfficerLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.commandAideLabel.frame.origin.x + self.commandAideLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _safetyOfficerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_safetyOfficerLabel setFrame:labelRect];
+        [_safetyOfficerLabel setTitle:@"Safety Officer" forState:UIControlStateNormal];
+        [_safetyOfficerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_safetyOfficerLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
     }
-    [_safetyOfficerLabel setText:@"SafetyOfficer"];
-    
     return _safetyOfficerLabel;
 }
 
-- (UILabel *)PIOLabel
+- (UIButton *)PIOLabel
 {
     if(!_PIOLabel){
         
-        _PIOLabel = [[UILabel alloc] initWithFrame:CGRectMake(697.5f, 74, 232.5f, 74)];
-		[_PIOLabel setBackgroundColor: [UIColor whiteColor]];
-		[_PIOLabel setTextColor:[UIColor redColor]];
-        [_PIOLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.safetyOfficerLabel.frame.origin.x + self.safetyOfficerLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _PIOLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_PIOLabel setFrame:labelRect];
+        [_PIOLabel setTitle:@"PIO" forState:UIControlStateNormal];
+        [_PIOLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_PIOLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
     }
-    [_PIOLabel setText:@"PIO"];
-    
     return _PIOLabel;
 }
 
-- (UILabel *)fireInvestigatorLabel
+- (UIButton *)fireInvestigatorLabel
 {
     if(!_fireInvestigatorLabel){
         
-        _fireInvestigatorLabel = [[UILabel alloc] initWithFrame:CGRectMake(930, 74, 232.5f, 74)];
-		[_fireInvestigatorLabel setBackgroundColor: [UIColor whiteColor]];
-		[_fireInvestigatorLabel setTextColor:[UIColor redColor]];
-        [_fireInvestigatorLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.PIOLabel.frame.origin.x + self.PIOLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _fireInvestigatorLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_fireInvestigatorLabel setFrame:labelRect];
+        [_fireInvestigatorLabel setTitle:@"Fire Investigator" forState:UIControlStateNormal];
+        [_fireInvestigatorLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_fireInvestigatorLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
     }
-    [_fireInvestigatorLabel setText:@"FireInvestigator"];
-    
     return _fireInvestigatorLabel;
 }
 
-- (UILabel *)strategyLabel
+- (UIButton *)strategyLabel
 {
     if(!_strategyLabel){
         
-        _strategyLabel = [[UILabel alloc] initWithFrame:CGRectMake(1162.5f, 74, 232.5f, 74)];
-		[_strategyLabel setBackgroundColor: [UIColor whiteColor]];
-		[_strategyLabel setTextColor:[UIColor blackColor]];
-        [_strategyLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        CGPoint labelOrigin;
+        labelOrigin.x = self.fireInvestigatorLabel.frame.origin.x + self.fireInvestigatorLabel.frame.size.width + spaceBetweenLabels;
+        labelOrigin.y = labelHeight;
         
+        CGSize labelSize;
+        labelSize.width = mediumLabelWidth;
+        labelSize.height = labelHeight;
+        
+        CGRect labelRect;
+        labelRect.origin = labelOrigin;
+        labelRect.size = labelSize;
+        
+        _strategyLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_strategyLabel setFrame:labelRect];
+        [_strategyLabel setTitle:@"Stragtegy" forState:UIControlStateNormal];
+        [_strategyLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_strategyLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
+
     }
-    [_strategyLabel setText:@"Strategy"];
-    
     return _strategyLabel;
 }
 
 
+
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end

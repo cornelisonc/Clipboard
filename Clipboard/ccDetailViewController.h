@@ -12,8 +12,24 @@
 
 @interface ccDetailViewController : UIViewController<UISplitViewControllerDelegate>
 
+@property (nonatomic, strong) IBOutlet UISwitch *onoff;
+- (IBAction)flip:(id)sender;
+
 @property (nonatomic, strong) id detailItem;
 @property (nonatomic, strong) UILabel *detailDescriptionLabel;
-@property (nonatomic, strong) ccGridView *gridView;
+@property (nonatomic, strong) ccGridView *wholeGridView;
 
+ @property (nonatomic, strong) UIView *gridView;
+ @property (nonatomic, strong) UIButton *timerLabel;
+ @property (nonatomic, strong) UIButton *locationLabel;
+ @property (nonatomic, strong) UIButton *buildingLabel;
+ @property (nonatomic, strong) UIButton *typeOfFireLabel;
+ @property (nonatomic, strong) UIButton *commanderLabel;
+ @property (nonatomic, strong) UIButton *commandAideLabel;
+ @property (nonatomic, strong) UIButton *safetyOfficerLabel;
+ @property (nonatomic, strong) UIButton *PIOLabel;
+ @property (nonatomic, strong) UIButton *fireInvestigatorLabel;
+ @property (nonatomic, strong) UIButton *strategyLabel;
+ 
 @end
+

@@ -16,46 +16,76 @@ NSMutableArray *_objects;
 
 @implementation ccSceneSplitViewController
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            self.clearsSelectionOnViewWillAppear = NO;
+            self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+        }
+        
+    }
+    return self;
+}
+
+
+- (void)loadView
+{
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen
+                                                                  mainScreen] applicationFrame] style:UITableViewStylePlain];
+    tableView.autoresizingMask =
+    UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView reloadData];
+    self.view = tableView;
+
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     // to display selectSceneViewController
-    [self presentViewController:selectSceneViewController animated:YES completion: nil];
-
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //Init Back Button
-    [self initBackButton];
+    //Init Buttons
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem *editButton = self.editButtonItem;
+    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.rightBarButtonItem = parButton;
     
-    //Uncomment to display add icon
-    /*
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    */
-
+    [self.navigationController setToolbarHidden:NO];
+    [self setToolbarItems:[NSArray arrayWithObjects:deleteButton,editButton, nil] animated:NO];
+    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,44)];
+    [self.tableView setTableHeaderView:testbar];
+    
+    
+    
     [self initSegmentControl];
     
     [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
 
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+    
+    
+    [self presentViewController:selectSceneViewController animated:YES completion: nil];
+ 
 }
 
 #pragma mark - Init
 
-- (void)initBackButton
-{
-    
-    UIImage *backButtonImage = [UIImage imageNamed:@"backbutton.psd"];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(backButtonPressed:)];
-    [self.navigationItem setLeftBarButtonItem:backButton];
-    
-}
+
 
 - (void)initSegmentControl
 {
@@ -75,7 +105,7 @@ NSMutableArray *_objects;
 
 #pragma mark - Actions
 
-- (IBAction)backButtonPressed:(id)sender
+- (void)backButtonPressed:(id)sender
 {
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
     [self presentViewController:selectSceneViewController animated:YES completion:nil];
@@ -87,12 +117,8 @@ NSMutableArray *_objects;
 {
     
     [self.tableView reloadData];
-    
-    
+
 }
-
-
-
 
 #pragma mark - Table View
 
@@ -108,7 +134,7 @@ NSMutableArray *_objects;
             return 10;
             break;
         case 1:
-            return 10;
+            return 2;
             break;
         case 2:
             return 10;

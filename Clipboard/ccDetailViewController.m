@@ -24,7 +24,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.//
     [self configureView];
-    
+    [self setTitle:@"Command Center"];
+    [self onOffSwitch];
     
 }
 #pragma mark - Managing the detail item
@@ -37,7 +38,7 @@
         // Update the view.
 
         [self configureView];
-        
+
         
     }
     
@@ -54,28 +55,57 @@
         self.detailDescriptionLabel.text = [self.detailItem description];        
     }
     
+    
+    
     //Init the GridView
-    ccGridView *gridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    self.gridView = gridView;
+    ccGridView *wholeGridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    
     
     //set the all the Labels
-    self.gridView.timeLabel = gridView.timeLabel;
-    self.gridView.timerLabel = gridView.timerLabel;
-    self.gridView.locationLabel = gridView.locationLabel;
-    self.gridView.buildingLabel = gridView.buildingLabel;
-    self.gridView.typeOfFireLabel = gridView.typeOfFireLabel;
-    self.gridView.commanderLabel = gridView.commanderLabel;
-    self.gridView.commandAideLabel = gridView.commandAideLabel;
-    self.gridView.safetyOfficerLabel = gridView.safetyOfficerLabel;
-    self.gridView.PIOLabel = gridView.PIOLabel;
-    self.gridView.fireInvestigatorLabel = gridView.fireInvestigatorLabel;
-    self.gridView.strategyLabel = gridView.strategyLabel;
     
-    gridView.owner = self;
-    self.view = gridView;
+    self.wholeGridView.gridView = wholeGridView.gridView; 
+    self.wholeGridView.timeLabel = wholeGridView.timeLabel;
+    self.wholeGridView.timerLabel = wholeGridView.timerLabel;
+    self.wholeGridView.locationLabel = wholeGridView.locationLabel;
+    self.wholeGridView.buildingLabel = wholeGridView.buildingLabel;
+    self.wholeGridView.typeOfFireLabel = wholeGridView.typeOfFireLabel;
+    self.wholeGridView.commanderLabel = wholeGridView.commanderLabel;
+    self.wholeGridView.commandAideLabel = wholeGridView.commandAideLabel;
+    self.wholeGridView.safetyOfficerLabel = wholeGridView.safetyOfficerLabel;
+    self.wholeGridView.PIOLabel = wholeGridView.PIOLabel;
+    self.wholeGridView.fireInvestigatorLabel = wholeGridView.fireInvestigatorLabel;
+    self.wholeGridView.strategyLabel = wholeGridView.strategyLabel;
+    self.wholeGridView = wholeGridView;
+
+    wholeGridView.owner = self;
+    self.view = wholeGridView;
      
 }
 
+#pragma mark - actions
+
+
+-(UISwitch *)onOffSwitch {
+    
+    _onoff = [[UISwitch alloc] init];
+    
+    [_onoff addTarget: self action: @selector(flip:) forControlEvents:UIControlEventValueChanged];
+    // Set the desired frame location of onoff here
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_onoff];
+    
+    return _onoff;
+    
+}
+
+- (IBAction)flip:(id)sender {
+    if (_onoff.on){
+        NSLog(@"On");
+    }
+    else{
+        NSLog(@"Off");
+    }
+}
 
 
 
@@ -83,7 +113,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Table", @"Master");
+    barButtonItem.title = @"Menu";
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }
