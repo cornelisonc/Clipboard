@@ -20,7 +20,6 @@
 @property (nonatomic, strong) ccGridView *wholeGridView;
 
  @property (nonatomic, strong) UIView *gridView;
- @property (nonatomic, strong) UIButton *timeLabel;
  @property (nonatomic, strong) UIButton *timerLabel;
  @property (nonatomic, strong) UIButton *locationLabel;
  @property (nonatomic, strong) UIButton *buildingLabel;
