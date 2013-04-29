@@ -21,6 +21,7 @@
 		47CD6966172069790072AF1E /* background-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD6965172069790072AF1E /* background-app.png */; };
 		47CD696817206AF90072AF1E /* background building smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = 47CD696717206AF90072AF1E /* background building smaller.png */; };
 		47E039CE172E4F3D002E1EF0 /* ccParCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E039CD172E4F3D002E1EF0 /* ccParCheckViewController.m */; };
+		47E039D1172E56B8002E1EF0 /* ccCrewNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E039D0172E56B8002E1EF0 /* ccCrewNotesViewController.m */; };
 		47E43AB7170A7C89001FC598 /* ccSelectSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */; };
 		47E43ABA170ABAC2001FC598 /* ccSceneSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E43AB9170ABAC2001FC598 /* ccSceneSplitViewController.m */; };
 		47F111791725B7D0002D176B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F111781725B7D0002D176B /* QuartzCore.framework */; };
@@ -72,6 +73,8 @@
 		47CD696717206AF90072AF1E /* background building smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background building smaller.png"; sourceTree = "<group>"; };
 		47E039CC172E4F3D002E1EF0 /* ccParCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccParCheckViewController.h; sourceTree = "<group>"; };
 		47E039CD172E4F3D002E1EF0 /* ccParCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccParCheckViewController.m; sourceTree = "<group>"; };
+		47E039CF172E56B8002E1EF0 /* ccCrewNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccCrewNotesViewController.h; sourceTree = "<group>"; };
+		47E039D0172E56B8002E1EF0 /* ccCrewNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccCrewNotesViewController.m; sourceTree = "<group>"; };
 		47E43AB5170A7C89001FC598 /* ccSelectSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccSelectSceneCell.h; sourceTree = "<group>"; };
 		47E43AB6170A7C89001FC598 /* ccSelectSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccSelectSceneCell.m; sourceTree = "<group>"; };
 		47E43AB8170ABAC2001FC598 /* ccSceneSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccSceneSplitViewController.h; path = ../ccSceneSplitViewController.h; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 			name = ParkCheck;
 			sourceTree = "<group>";
 		};
+		47E039D2172E56BC002E1EF0 /* CrewNotes */ = {
+			isa = PBXGroup;
+			children = (
+				47E039CF172E56B8002E1EF0 /* ccCrewNotesViewController.h */,
+				47E039D0172E56B8002E1EF0 /* ccCrewNotesViewController.m */,
+			);
+			name = CrewNotes;
+			sourceTree = "<group>";
+		};
 		47E43ABE170ABCE4001FC598 /* SelectScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +223,7 @@
 		A70A8C7916EFA6A800DBA1E4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				47E039D2172E56BC002E1EF0 /* CrewNotes */,
 				47E039CB172E4AC2002E1EF0 /* ParkCheck */,
 				47E43ABE170ABCE4001FC598 /* SelectScene */,
 				47E43ABF170ABD03001FC598 /* SceneSplit */,
@@ -438,6 +451,7 @@
 				477143EF170DF55B00951B7E /* ccGridView.m in Sources */,
 				4785347E17150C1800B8A750 /* ccDetailViewController.m in Sources */,
 				47E039CE172E4F3D002E1EF0 /* ccParCheckViewController.m in Sources */,
+				47E039D1172E56B8002E1EF0 /* ccCrewNotesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -262,10 +262,6 @@ NSMutableArray *_objects;
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             cell.textLabel.text = @"J. Doe";
@@ -318,7 +314,7 @@ NSMutableArray *_objects;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
 }
 
 

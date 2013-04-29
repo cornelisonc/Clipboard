@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     [self setTitle:[NSString stringWithFormat:@"Par Check"]];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(homeButtonPressed:)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -40,6 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)homeButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,6 +57,25 @@
 {
     // Return the number of rows in the section.
     return 1;
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 44;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+    UIButton *headerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [headerLabel setFrame:CGRectMake(0,0, 320, 44)];
+    
+    [headerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [headerLabel setTitle:@"Crew: " forState:UIControlStateNormal];
+    UIImage *_largeLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"large.png"]];
+    [headerLabel setBackgroundImage: _largeLabelImage    forState:UIControlStateNormal];
+    [headerView addSubview:headerLabel];
+
+
+    return headerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

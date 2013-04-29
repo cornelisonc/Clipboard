@@ -1,5 +1,5 @@
 //
-//  ccParCheckViewController.h
+//  ccCrewNotesViewController.h
 //  Clipboard
 //
 //  Created by William Cleeton on 4/29/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ccParCheckViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ccCrewNotesViewController : UIViewController
 
 @end

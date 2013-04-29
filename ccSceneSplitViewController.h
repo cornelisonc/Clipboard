@@ -13,8 +13,7 @@
 
 @class ccDetailViewController;
 
-@interface ccSceneSplitViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
-
+@interface ccSceneSplitViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) ccDetailViewController *detailViewController;
 @property (nonatomic, strong) UITableView * tableView;
