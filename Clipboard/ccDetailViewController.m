@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIPopoverController *masterPopoverController;
 -(void)configureView;
-
+@property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
 
 @end
 
@@ -24,9 +24,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.//
     [self configureView];
-    [self setTitle:@"Command Center"];
+    ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
+    self.selectSceneViewController = selectSceneViewController;
+                                  
+    [self setTitle:[NSString stringWithFormat:@"Command Center"]];
     [self onOffSwitch];
+
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self presentViewController:_selectSceneViewController animated:YES completion:nil];
 }
 #pragma mark - Managing the detail item
 
@@ -37,6 +46,8 @@
         
         // Update the view.
 
+        ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
+        self.selectSceneViewController = selectSceneViewController;
         [self configureView];
 
         
@@ -60,27 +71,31 @@
     //Init the GridView
     ccGridView *wholeGridView = [[ccGridView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     
-    
     //set the all the Labels
     
-    self.wholeGridView.gridView = wholeGridView.gridView; 
-    self.wholeGridView.timeLabel = wholeGridView.timeLabel;
-    self.wholeGridView.timerLabel = wholeGridView.timerLabel;
-    self.wholeGridView.locationLabel = wholeGridView.locationLabel;
-    self.wholeGridView.buildingLabel = wholeGridView.buildingLabel;
-    self.wholeGridView.typeOfFireLabel = wholeGridView.typeOfFireLabel;
-    self.wholeGridView.commanderLabel = wholeGridView.commanderLabel;
-    self.wholeGridView.commandAideLabel = wholeGridView.commandAideLabel;
-    self.wholeGridView.safetyOfficerLabel = wholeGridView.safetyOfficerLabel;
-    self.wholeGridView.PIOLabel = wholeGridView.PIOLabel;
-    self.wholeGridView.fireInvestigatorLabel = wholeGridView.fireInvestigatorLabel;
-    self.wholeGridView.strategyLabel = wholeGridView.strategyLabel;
-    self.wholeGridView = wholeGridView;
+    [_locationLabel setTitle:[NSString stringWithFormat:@"Location: %@", _selectSceneViewController.fireInstance]  forState:UIControlStateNormal];
 
+    
+    
+    self.gridView = wholeGridView.gridView;
+    self.timerLabel = wholeGridView.timerLabel;
+    self.locationLabel = wholeGridView.locationLabel;
+    self.buildingLabel = wholeGridView.buildingLabel;
+    self.typeOfFireLabel = wholeGridView.typeOfFireLabel;
+    self.commanderLabel = wholeGridView.commanderLabel;
+    self.commandAideLabel = wholeGridView.commandAideLabel;
+    self.safetyOfficerLabel = wholeGridView.safetyOfficerLabel;
+    self.PIOLabel = wholeGridView.PIOLabel;
+    self.fireInvestigatorLabel = wholeGridView.fireInvestigatorLabel;
+    self.strategyLabel = wholeGridView.strategyLabel;
+    self.wholeGridView = wholeGridView;
+    
     wholeGridView.owner = self;
     self.view = wholeGridView;
      
 }
+
+
 
 #pragma mark - actions
 
@@ -98,13 +113,17 @@
     
 }
 
-- (IBAction)flip:(id)sender {
+
+
+- (void)flip:(id)sender {
     if (_onoff.on){
-        NSLog(@"On");
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to take Command?" message:@"Taking command will override all other user's ability to add personal." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+        [errorAlert show];
     }
     else{
         NSLog(@"Off");
     }
+
 }
 
 

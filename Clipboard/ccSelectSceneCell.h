@@ -10,6 +10,12 @@
 
 @interface ccSelectSceneCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *incidentLabel;
+@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UILabel *locationLabel;
+@property (nonatomic, strong) UILabel *buildingLabel;
+@property (nonatomic, strong) UILabel *typeLabel;
+@property (nonatomic, strong) UILabel *apparatusLabel;
+
 
 @end

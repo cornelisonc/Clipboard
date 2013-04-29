@@ -8,10 +8,15 @@
 
 #import "ccSceneSplitViewController.h"
 
-@interface ccSceneSplitViewController (){
-
+@interface ccSceneSplitViewController ()
+{
 NSMutableArray *_objects;
 }
+@property (nonatomic, strong) NSMutableArray* sectionInfoArray;
+@property (nonatomic, strong) NSMutableArray* tacticalBenchmarks;
+@property (nonatomic, strong) NSMutableArray* considerations;
+@property (nonatomic, strong) NSMutableArray* fireInstance;
+
 @end
 
 @implementation ccSceneSplitViewController
@@ -22,8 +27,9 @@ NSMutableArray *_objects;
     if (self) {
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
-            self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+            self.contentSizeForViewInPopover = CGSizeMake(320.0, self.view.frame.size.height);
         }
+        
         
     }
     return self;
@@ -39,6 +45,7 @@ NSMutableArray *_objects;
     UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView setBackgroundColor:[UIColor grayColor]];
     [tableView reloadData];
     self.view = tableView;
 
@@ -56,17 +63,16 @@ NSMutableArray *_objects;
     
     //Init Buttons
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(homeButtonPressed:)];
-    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
     UIBarButtonItem *editButton = self.editButtonItem;
-    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:@selector(parButtonPressed:)];
     self.navigationItem.rightBarButtonItem = parButton;
     
+    
+    [self setToolbarItems:[NSArray arrayWithObjects:addButton,editButton, nil] animated:NO];
     [self.navigationController setToolbarHidden:NO];
-    [self setToolbarItems:[NSArray arrayWithObjects:deleteButton,editButton, nil] animated:NO];
-    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,44)];
-    [self.tableView setTableHeaderView:testbar];
     
-    
+    [self initTacticalBenchmark];
     
     [self initSegmentControl];
     
@@ -74,17 +80,13 @@ NSMutableArray *_objects;
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    
-    
-    [self presentViewController:selectSceneViewController animated:YES completion: nil];
- 
-}
-
 #pragma mark - Init
 
+-(void)passFireInstance:(id)fireInstance
+{
+    
+    self.fireInstance = fireInstance;
+}
 
 
 - (void)initSegmentControl
@@ -103,17 +105,52 @@ NSMutableArray *_objects;
         
 }
 
+- (void)initTacticalBenchmark
+{
+    NSMutableArray *tacticalBenchmark = [[NSMutableArray alloc] init];
+    [tacticalBenchmark addObject:@"360 COMPLETE"];
+    [tacticalBenchmark addObject:@"PRIMARY ALL CLEAR"];
+    [tacticalBenchmark addObject:@"WATER ON FIRE"];
+    [tacticalBenchmark addObject:@"WATER SUPPLY ESTABLISHED"];
+    [tacticalBenchmark addObject:@"SECONDARY ALL CLEAR"];
+    [tacticalBenchmark addObject:@"LOSS STOPPED/FIRE CONTROL"];
+    [tacticalBenchmark addObject:@"MARK THE INCIDENT UNDER CONTROL"];
+    
+    self.tacticalBenchmarks = tacticalBenchmark;
+
+
+
+}
+
+-(void)initConsiderations
+{
+    NSMutableArray *considerations = [[NSMutableArray alloc] init];
+    [considerations addObject:@"SECURE UTILITES"];
+    [considerations addObject:@"LADDERS"];
+    [considerations addObject:@"SALVAGE/LOSS CONTROL"];
+    [considerations addObject:@"CUSTOMER NOTIFICATION"];
+    [considerations addObject:@"CUSTOMER STABILIZATION"];
+    [considerations addObject:@"REHAB"];
+    [considerations addObject:@"INVESTIGATION"];
+    [considerations addObject:@"DEBRIEF"];
+
+    self.considerations = considerations;
+    
+}
 #pragma mark - Actions
 
 - (void)homeButtonPressed:(id)sender
 {
     ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    
-    
     [self presentViewController:selectSceneViewController animated:YES completion: nil];
 }
 
-
+- (void)parButtonPressed:(id)sender
+{
+    ccParCheckViewController *parCheckViewController = [[ccParCheckViewController alloc] init];
+    [self presentViewController:parCheckViewController animated:YES completion:nil];
+    
+}
 
 -(void)segmentAction:(id)sender
 {
@@ -126,7 +163,21 @@ NSMutableArray *_objects;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 2;
+            break;
+        case 2:
+            return 2;
+            break;
+        default:
+            return 1;
+            break;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -136,10 +187,12 @@ NSMutableArray *_objects;
             return 10;
             break;
         case 1:
-            return 2;
+            if (section == 0) return _tacticalBenchmarks.count;
+            else if (section == 1) return _considerations.count;
+            return 0;
             break;
         case 2:
-            return 10;
+            return 1;
             break;
         default:
             return 0;
@@ -149,17 +202,58 @@ NSMutableArray *_objects;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,44)];
-        
-    [headerView addSubview:_segmentedControl];
+    UISearchBar *testbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,44,320,44)];
+    if (section == 0) {
+        [headerView addSubview:_segmentedControl];
+
+    }
+    UIButton *headerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [headerLabel setFrame:CGRectMake(0,0, 320, 44)];
+    
+    [headerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIImage *_largeLabelImage = [UIImage imageNamed:[NSString stringWithFormat:@"large.png"]];
+    [headerLabel setBackgroundImage: _largeLabelImage    forState:UIControlStateNormal];
+
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            [headerView addSubview:testbar];
+            return headerView;
+            break;
+        case 1:
+            if (section == 0) {
+                [headerLabel setFrame:CGRectMake(0, 44, 320, 44)];
+                [headerLabel setTitle:@"TACTICAL BENCHMARKS" forState:UIControlStateNormal];            }
+            else if (section == 1) {
+                [headerLabel setTitle:@"CONSIDERATIONS" forState:UIControlStateNormal];            }
+            [headerView addSubview:headerLabel];
+            return headerView;
+            break;
+        case 2:
+            if (section == 0) {
+                [headerLabel setFrame:CGRectMake(0, 44, 320, 44)];
+                [headerLabel setTitle:@"APPARATUS" forState:UIControlStateNormal]; 
+            }
+            else if (section == 1)
+            {
+                [headerLabel setTitle:@"INITIAL DISPATCH" forState:UIControlStateNormal]; 
+            }
+            [headerView addSubview:headerLabel];
+            return headerView;
+            break;
+        default:
+            return headerView;
+            break;
+    }
 
     return headerView;
     
 }
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return  44;
+    if (section == 0) return 88;
+    else return 44;
 }
 
 
@@ -177,9 +271,16 @@ NSMutableArray *_objects;
             cell.textLabel.text = @"J. Doe";
             break;
         case 1:
-            cell.textLabel.text = @"Tactical Benchmarks";
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            [cell.textLabel setTextColor:[UIColor whiteColor]];
+            if (indexPath.section == 0) {
+                cell.textLabel.text = [_tacticalBenchmarks objectAtIndex:indexPath.row];
+            }else if (indexPath.section ==1){
+                cell.textLabel.text = [_considerations objectAtIndex:indexPath.row];
+            }
             break;
         case 2:
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
             cell.textLabel.text = @"Log";
             break;
         default:
@@ -216,6 +317,7 @@ NSMutableArray *_objects;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 

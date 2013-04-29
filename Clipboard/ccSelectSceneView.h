@@ -12,7 +12,7 @@
 @interface ccSelectSceneView : UIView 
 
 @property (nonatomic, strong) UIImageView *logoImageView;
-@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *headerLabel;
 @property (nonatomic, strong) id owner;
 
 @end

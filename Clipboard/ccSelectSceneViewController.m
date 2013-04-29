@@ -21,7 +21,12 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        ccSelectSceneView *selectSceneView = [[ccSelectSceneView alloc] init];
+        self.logoImageView = selectSceneView.logoImageView;
+        self.headerLabel = selectSceneView.headerLabel;
+        [self.view setBackgroundColor:[UIColor grayColor]];
         
+        self.modalPresentationStyle=UIModalPresentationPageSheet;
     }
 
     return self;
@@ -66,19 +71,19 @@
 #pragma mark - Table view data source
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - _logoImageView.frame.size.width/2, self.view.frame.size.height/2 - _logoImageView.frame.size.height/2,tableView.frame.size.width, _logoImageView.frame.size.height)];
-
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, _logoImageView.frame.size.height + 44.0f)];
     
     [headerView addSubview:_logoImageView];
+    [headerView addSubview:_headerLabel];
+    
     return headerView; 
     
 }
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-   return  _logoImageView.frame.size.height;
+   return  _logoImageView.frame.size.height + 44.0f;
 
 }
 
@@ -105,8 +110,13 @@
     
     //configure the cell
     ccFireInstance *fireInstance = self.fireInstance[indexPath.row];
-    cell.nameLabel.text = fireInstance.location;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
+    //cell.incidentLabel.text = fireInstance.incidentNum;
+    cell.timeLabel.text = fireInstance.incidentDateTime;
+    cell.locationLabel.text = fireInstance.location;
+    cell.buildingLabel.text = fireInstance.building;
+    cell.typeLabel.text = fireInstance.incidentType;
+    //cell.apparatusLabel.text = fireInstance.apparaturs;
+    
 
     
     return cell;
@@ -121,7 +131,11 @@
     //detailViewController.title = self.nameLabel[indexPath.row];
     // ...
     // Pass the selected object to the new view controller.
+    
+    //[detailViewController passFireInstance:_fireInstance];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 

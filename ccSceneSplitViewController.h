@@ -9,17 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ccGridView.h"
 #import "ccDetailViewController.h"
-#import "ccSelectSceneViewController.h"
+#import "ccParCheckViewController.h"
 
-@class ccGridView;
+@class ccDetailViewController;
 
 @interface ccSceneSplitViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
 
 @property (nonatomic, strong) ccDetailViewController *detailViewController;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UISwitch *onoff;
+
 - (void)flip:(id)sender;
 
 
