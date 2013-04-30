@@ -24,7 +24,6 @@
     //Create a DetailView controller
     ccDetailViewController *detailViewController = [[ccDetailViewController alloc] init];
     UINavigationController *detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-    
     sceneSplitViewController.detailViewController = detailViewController;
     
     self.splitViewController = [[UISplitViewController alloc] init];

@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIPopoverController *masterPopoverController;
 -(void)configureView;
-@property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
+//@property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
 
 @end
 
@@ -23,19 +23,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.//
-    [self configureView];
-    ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
-    self.selectSceneViewController = selectSceneViewController;
-                                  
+    
+
     [self setTitle:[NSString stringWithFormat:@"Command Center"]];
     [self onOffSwitch];
-
-    
+    ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
+    self.selectSceneViewController = selectSceneViewController;
+    [self configureView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self presentViewController:_selectSceneViewController animated:YES completion:nil];
+        //[self.splitViewController presentViewController:_selectSceneViewController animated:YES completion:nil];
+    
 }
 #pragma mark - Managing the detail item
 
@@ -45,13 +45,13 @@
         _detailItem = newDetailItem;
         
         // Update the view.
+        
 
-        ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-        self.selectSceneViewController = selectSceneViewController;
         [self configureView];
 
         
     }
+    
     
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];

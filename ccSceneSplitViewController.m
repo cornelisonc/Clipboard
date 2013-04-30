@@ -1,3 +1,4 @@
+
 //
 //  ccSceneSplitViewController.m
 //  Clipboard
@@ -5,6 +6,11 @@
 //  Created by William Cleeton on 4/2/13.
 //  Copyright (c) 2013 muit. All rights reserved.
 //
+
+#import "ccGridView.h"
+#import "ccDetailViewController.h"
+#import "ccParCheckViewController.h"
+#import "ccSelectSceneViewController.h"
 
 #import "ccSceneSplitViewController.h"
 
@@ -17,6 +23,7 @@ NSMutableArray *_objects;
 @property (nonatomic, strong) NSMutableArray* considerations;
 @property (nonatomic, strong) NSMutableArray* fireInstance;
 
+
 @end
 
 @implementation ccSceneSplitViewController
@@ -28,6 +35,7 @@ NSMutableArray *_objects;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, self.view.frame.size.height);
+            
         }
         
         
@@ -68,6 +76,8 @@ NSMutableArray *_objects;
     UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:@selector(parButtonPressed:)];
     self.navigationItem.rightBarButtonItem = parButton;
     
+    ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
+    self.selectSceneViewController = selectSceneViewController;
     
     [self setToolbarItems:[NSArray arrayWithObjects:addButton,editButton, nil] animated:NO];
     [self.navigationController setToolbarHidden:NO];
@@ -76,9 +86,12 @@ NSMutableArray *_objects;
     
     [self initSegmentControl];
     
+
     [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
 
 }
+
+
 
 #pragma mark - Init
 
@@ -141,8 +154,8 @@ NSMutableArray *_objects;
 
 - (void)homeButtonPressed:(id)sender
 {
-    ccSelectSceneViewController *selectSceneViewController = [[ccSelectSceneViewController alloc] init];
-    [self presentViewController:selectSceneViewController animated:YES completion: nil];
+    
+    [self.splitViewController presentViewController:_selectSceneViewController animated:YES completion: nil];
 }
 
 - (void)parButtonPressed:(id)sender
@@ -185,10 +198,16 @@ NSMutableArray *_objects;
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             return 10;
+            //put firefighters array.count here
             break;
         case 1:
-            if (section == 0) return _tacticalBenchmarks.count;
-            else if (section == 1) return _considerations.count;
+            if (section == 0) {
+             return _tacticalBenchmarks.count;
+
+            }
+            else if (section == 1) {
+              return _considerations.count;
+            }
             return 0;
             break;
         case 2:
@@ -261,6 +280,10 @@ NSMutableArray *_objects;
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:

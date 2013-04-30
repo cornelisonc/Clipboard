@@ -23,10 +23,9 @@
         // Custom initialization
         ccSelectSceneView *selectSceneView = [[ccSelectSceneView alloc] init];
         self.logoImageView = selectSceneView.logoImageView;
-        self.headerLabel = selectSceneView.headerLabel;
-        [self.view setBackgroundColor:[UIColor grayColor]];
+        //[self.view setBackgroundColor:[UIColor grayColor]];
         
-        self.modalPresentationStyle=UIModalPresentationPageSheet;
+        self.modalPresentationStyle = UIModalPresentationPageSheet;
     }
 
     return self;
@@ -39,7 +38,7 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireInstanceDidParseNotification" object:nil];
     
@@ -65,17 +64,13 @@
 	}];
 }
 
-
-
-
 #pragma mark - Table view data source
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, _logoImageView.frame.size.height + 44.0f)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, _logoImageView.frame.size.height)];
     
     [headerView addSubview:_logoImageView];
-    [headerView addSubview:_headerLabel];
     
     return headerView; 
     
@@ -83,7 +78,8 @@
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-   return  _logoImageView.frame.size.height + 44.0f;
+   return  _logoImageView.frame.size.height;
+
 
 }
 
@@ -107,17 +103,31 @@
     static NSString *CellIdentifier = @"Cell";
     ccSelectSceneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
+    if (!cell) {
+        cell = [[ccSelectSceneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     //configure the cell
-    ccFireInstance *fireInstance = self.fireInstance[indexPath.row];
-    //cell.incidentLabel.text = fireInstance.incidentNum;
-    cell.timeLabel.text = fireInstance.incidentDateTime;
-    cell.locationLabel.text = fireInstance.location;
-    cell.buildingLabel.text = fireInstance.building;
-    cell.typeLabel.text = fireInstance.incidentType;
-    //cell.apparatusLabel.text = fireInstance.apparaturs;
+    if (indexPath == 0) {
+        cell.timeLabel.text = [NSString stringWithFormat:@"TIME"];
+        cell.incidentLabel.text = [NSString stringWithFormat:@"INCIDENT"];
+        cell.timeLabel.text = [NSString stringWithFormat:@"TIME"];
+        cell.locationLabel.text = [NSString stringWithFormat:@"LOCATION"];
+        cell.buildingLabel.text = [NSString stringWithFormat:@"BUILDING"];
+        cell.typeLabel.text = [NSString stringWithFormat:@"TYPE"];
+        cell.apparatusLabel.text = [NSString stringWithFormat:@"APPARATUS"];
+    }
+    else{
     
-
+        ccFireInstance *fireInstance = self.fireInstance[indexPath.row];
+        cell.incidentLabel.text = fireInstance.incidentNum;
+        cell.timeLabel.text = fireInstance.incidentDateTime;
+        cell.locationLabel.text = fireInstance.location;
+        cell.buildingLabel.text = fireInstance.building;
+        cell.typeLabel.text = fireInstance.incidentType;
+        //cell.apparatusLabel.text = fireInstance.apparaturs;
+    
+    }
     
     return cell;
 }

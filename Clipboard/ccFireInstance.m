@@ -48,7 +48,7 @@
         _IEMSNatureCode = FireInstanceDictionary[@"IEMSNatureCode"];
         _EMSRespTransTo = FireInstanceDictionary[@"EMSRespTransTo"];
         _incidentType = FireInstanceDictionary[@"IncType"];
-        _incidentNum = FireInstanceDictionary[@"IncidentNo"];
+        _incidentNum = [NSString stringWithFormat:@"%d", [FireInstanceDictionary[@"IncidentNo"] intValue]];
         _latitude = FireInstanceDictionary[@"Latitude"];
         _longitude = FireInstanceDictionary[@"Longitutde"];
         _MDT = FireInstanceDictionary[@"MDT"];
