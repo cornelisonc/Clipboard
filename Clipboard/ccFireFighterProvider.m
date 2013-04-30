@@ -13,7 +13,7 @@
 - (void)fetchFireFighter
 {
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
-	NSString *URLString = @"muitclipboard.herokuapp.com/api/v1/auto_cad_data.json"; //not the real url, just placeholder
+	NSString *URLString = @"muitclipboard.herokuapp.com/api/v1/personel_data.json"; //not the real url, just placeholder
 	NSURL *URL = [NSURL URLWithString:URLString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 	[NSURLConnection sendAsynchronousRequest:request queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
