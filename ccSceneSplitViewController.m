@@ -9,9 +9,8 @@
 
 #import "ccGridView.h"
 #import "ccDetailViewController.h"
-#import "ccParCheckViewController.h"
 #import "ccSelectSceneViewController.h"
-
+#import "ccParCheckViewController.h"
 #import "ccSceneSplitViewController.h"
 
 @interface ccSceneSplitViewController ()
@@ -22,6 +21,8 @@ NSMutableArray *_objects;
 @property (nonatomic, strong) NSMutableArray* tacticalBenchmarks;
 @property (nonatomic, strong) NSMutableArray* considerations;
 @property (nonatomic, strong) NSMutableArray* fireInstance;
+@property (nonatomic, strong) NSOperationQueue* operationQueue;
+@property (nonatomic, strong) NSMutableArray* fireFighter;
 
 
 @end
@@ -36,28 +37,35 @@ NSMutableArray *_objects;
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, self.view.frame.size.height);
             
+            
         }
         
+        UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen
+                                                                      mainScreen] applicationFrame] style:UITableViewStylePlain];
+        tableView.autoresizingMask =
+        UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        
+    [tableView setBackgroundColor:[UIColor grayColor]];
+        
+        self.view = tableView;
+        //[tableView reloadData];
     }
     return self;
 }
 
 
-- (void)loadView
+
+
+-(void)loadView
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireFightersDidParseNotification" object:nil];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen
-                                                                  mainScreen] applicationFrame] style:UITableViewStylePlain];
-    tableView.autoresizingMask =
-    UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [tableView setBackgroundColor:[UIColor grayColor]];
-    [tableView reloadData];
-    self.view = tableView;
-
-
+    //set up and configure an operation queue so processing does not happen on the main thread.
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    [self.operationQueue setMaxConcurrentOperationCount:3];
 }
 
 - (void)viewDidLoad
@@ -91,7 +99,14 @@ NSMutableArray *_objects;
 
 }
 
-
+- (void)repsondToInstanceParse:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    self.fireFighter = userInfo[@"fireFighters"];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self.tableView reloadData];
+	}];
+}
 
 #pragma mark - Init
 
@@ -195,10 +210,11 @@ NSMutableArray *_objects;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"section %i", self.segmentedControl.selectedSegmentIndex);
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            return 10;
-            //put firefighters array.count here
+            NSLog(@"fireFighter %i", _fireFighter.count);
+            return _fireFighter.count;
             break;
         case 1:
             if (section == 0) {
@@ -287,7 +303,8 @@ NSMutableArray *_objects;
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            cell.textLabel.text = @"J. Doe";
+            cell.textLabel.text = [_fireFighter objectAtIndex:indexPath.row];
+            
             break;
         case 1:
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];

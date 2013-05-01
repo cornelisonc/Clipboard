@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ccFireFighterProvider.h"
 
 @class ccDetailViewController;
 @class ccSelectSceneViewController;

@@ -13,7 +13,6 @@
 @property (nonatomic, strong) UIImage *smallLabelImage;
 @property (nonatomic, strong) UIImage *mediumLabelImage;
 @property (nonatomic, strong) UIImage *largeLabelImagel;
-
 @end
 
 @implementation ccGridView
@@ -22,7 +21,9 @@ float labelHeight = 44.0f;
 float smallLabelWidth = 0.0f;
 float mediumLabelWidth = 0.0f;
 float largeLabelWidth = 0.0f;
+float kLabelWidth;
 #define spaceBetweenLabels 2.5f
+ 
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -30,8 +31,9 @@ float largeLabelWidth = 0.0f;
     if (self) {
         // Initialization code
         //set background color of the view.
-        [self setBackgroundColor:[UIColor grayColor]];
+        [self setBackgroundColor:[UIColor redColor]];
         mediumLabelWidth = self.frame.size.width/6;
+        NSLog(@"medium width %f ", mediumLabelWidth);
         smallLabelWidth = (mediumLabelWidth / 2) - 2.5;
         largeLabelWidth = (2 * mediumLabelWidth) - 2.5;
         mediumLabelWidth = mediumLabelWidth - 2.5;
@@ -108,8 +110,10 @@ float largeLabelWidth = 0.0f;
 {
     if(!_timerLabel){
         
+        kLabelWidth = 0.0f;
+        
         CGPoint labelOrigin;
-        labelOrigin.x = 0;
+        labelOrigin.x = kLabelWidth;
         labelOrigin.y = 0.0f;
         
         CGSize labelSize;
@@ -124,6 +128,7 @@ float largeLabelWidth = 0.0f;
         [_timerLabel setTitle:@"Timer" forState:UIControlStateNormal];
         [_timerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_timerLabel setBackgroundImage:_smallLabelImage    forState:UIControlStateNormal];
+        
         
     }
     
@@ -150,6 +155,7 @@ float largeLabelWidth = 0.0f;
         [_locationLabel setFrame:labelRect];
         [_locationLabel setTitle:@"Location" forState:UIControlStateNormal];
         [_locationLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_locationLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         [_locationLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
         
     }
@@ -180,7 +186,8 @@ float largeLabelWidth = 0.0f;
         [_buildingLabel setTitle:@"Building" forState:UIControlStateNormal];
         [_buildingLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_buildingLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
-        
+        [_buildingLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+
     }
     
     return _buildingLabel;
@@ -207,6 +214,8 @@ float largeLabelWidth = 0.0f;
         [_typeOfFireLabel setTitle:@"Type Of Fire" forState:UIControlStateNormal];
         [_typeOfFireLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_typeOfFireLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
+        [_typeOfFireLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+
     }
     return _typeOfFireLabel;
 }
@@ -232,6 +241,8 @@ float largeLabelWidth = 0.0f;
         [_commanderLabel setTitle:@"Commander" forState:UIControlStateNormal];
         [_commanderLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_commanderLabel setBackgroundImage:_mediumLabelImage      forState:UIControlStateNormal];
+        [_commanderLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+
     }
     return _commanderLabel;
 }
