@@ -129,13 +129,12 @@ float kLabelWidth;
         [_timerLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_timerLabel setBackgroundImage:_smallLabelImage    forState:UIControlStateNormal];
         
-        
     }
     
     return _timerLabel;
 }
 
-- (UIButton *)locationLabel
+- (UILabel *)locationLabel
 {
     if(!_locationLabel){
         
@@ -151,12 +150,13 @@ float kLabelWidth;
         labelRect.origin = labelOrigin;
         labelRect.size = labelSize;
         
-        _locationLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        _locationLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _locationLabel = [[UILabel alloc] initWithFrame:labelRect];
         [_locationLabel setFrame:labelRect];
-        [_locationLabel setTitle:@"Location" forState:UIControlStateNormal];
-        [_locationLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_locationLabel setText:@"Location"];
+        [_locationLabel setTextColor:[UIColor whiteColor]];
         [_locationLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-        [_locationLabel setBackgroundImage:_largeLabelImagel      forState:UIControlStateNormal];
+        [_locationLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"largeLabelImage"]]];
         
     }
     
