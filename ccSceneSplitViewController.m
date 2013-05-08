@@ -310,7 +310,11 @@ NSMutableArray *_objects;
         case 0:
         {
             ccFireFighter *fireFighters = self.fireFighters[indexPath.row];
-            cell.textLabel.text = fireFighters.firstName;
+            
+            NSString *cellText = fireFighters.lastName;
+            cellText = [cellText stringByAppendingString:@", "];
+            cellText = [cellText stringByAppendingString:fireFighters.firstName];
+            cell.textLabel.text = cellText;
         }
             break;
         case 1:
