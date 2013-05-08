@@ -93,7 +93,7 @@ NSMutableArray *_objects;
 
 }
 
-- (void)repsondToInstanceParse:(NSNotification *)notification
+- (void)respondToInstanceParse:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
     self.fireFighters = userInfo[@"fireFighters"];
