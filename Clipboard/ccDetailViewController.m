@@ -73,7 +73,7 @@
     
     //set the all the Labels
     
-    [_locationLabel setTitle:[NSString stringWithFormat:@"Location: %@", _selectSceneViewController.fireInstance]  forState:UIControlStateNormal];
+    [_locationLabel setText:[NSString stringWithFormat:@"Location: %@", _selectSceneViewController.fireInstance]];
 
     
     
