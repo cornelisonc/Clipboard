@@ -69,7 +69,7 @@ NSMutableArray *_objects;
     static NSString *CellIdentifier = @"Cell";
 	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
     ccFireFighterProvider *provider = [[ccFireFighterProvider alloc] init];
-    //[provider fetchFireFighter];
+    [provider fetchFireFighter];
     
     // to display selectSceneViewController
     
