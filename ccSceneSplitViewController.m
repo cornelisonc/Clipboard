@@ -20,9 +20,9 @@ NSMutableArray *_objects;
 @property (nonatomic, strong) NSMutableArray* sectionInfoArray;
 @property (nonatomic, strong) NSMutableArray* tacticalBenchmarks;
 @property (nonatomic, strong) NSMutableArray* considerations;
-@property (nonatomic, strong) NSMutableArray* fireInstance;
+@property (nonatomic, strong) NSMutableArray* fireInstances;
 @property (nonatomic, strong) NSOperationQueue* operationQueue;
-@property (nonatomic, strong) NSMutableArray* fireFighter;
+@property (nonatomic, strong) NSMutableArray* fireFighters;
 
 
 @end
@@ -56,42 +56,36 @@ NSMutableArray *_objects;
     return self;
 }
 
-
-
-
--(void)loadView
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToInstanceParse:) name:@"ccFireFightersDidParseNotification" object:nil];
     
     //set up and configure an operation queue so processing does not happen on the main thread.
     self.operationQueue = [[NSOperationQueue alloc] init];
     [self.operationQueue setMaxConcurrentOperationCount:3];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    
+    static NSString *CellIdentifier = @"Cell";
+	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    ccFireFighterProvider *provider = [[ccFireFighterProvider alloc] init];
+    //[provider fetchFireFighter];
     
     // to display selectSceneViewController
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //Init Buttons
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(homeButtonPressed:)];
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
-    UIBarButtonItem *editButton = self.editButtonItem;
-    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:@selector(parButtonPressed:)];
-    self.navigationItem.rightBarButtonItem = parButton;
+    [self initButtons];
     
     ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
     self.selectSceneViewController = selectSceneViewController;
     
-    [self setToolbarItems:[NSArray arrayWithObjects:addButton,editButton, nil] animated:NO];
+
     [self.navigationController setToolbarHidden:NO];
     
     [self initTacticalBenchmark];
-    
+    [self initConsiderations];
     [self initSegmentControl];
     
 
@@ -102,7 +96,7 @@ NSMutableArray *_objects;
 - (void)repsondToInstanceParse:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    self.fireFighter = userInfo[@"fireFighters"];
+    self.fireFighters = userInfo[@"fireFighters"];
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 		[self.tableView reloadData];
 	}];
@@ -113,9 +107,20 @@ NSMutableArray *_objects;
 -(void)passFireInstance:(id)fireInstance
 {
     
-    self.fireInstance = fireInstance;
+    self.fireInstances = fireInstance;
 }
 
+-(void)initButtons
+{
+    //Init Buttons
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(homeButtonPressed:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:nil];
+    UIBarButtonItem *editButton = self.editButtonItem;
+    UIBarButtonItem *parButton = [[UIBarButtonItem alloc] initWithTitle:@"Par" style:UIBarButtonItemStyleBordered target:self action:@selector(parButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = parButton;
+    
+    [self setToolbarItems:[NSArray arrayWithObjects:addButton,editButton, nil] animated:NO];
+}
 
 - (void)initSegmentControl
 {
@@ -213,8 +218,8 @@ NSMutableArray *_objects;
     NSLog(@"section %i", self.segmentedControl.selectedSegmentIndex);
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            NSLog(@"fireFighter %i", _fireFighter.count);
-            return _fireFighter.count;
+            NSLog(@"fireFighters %i", _fireFighters.count);
+            return _fireFighters.count;
             break;
         case 1:
             if (section == 0) {
@@ -303,10 +308,13 @@ NSMutableArray *_objects;
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            cell.textLabel.text = [_fireFighter objectAtIndex:indexPath.row];
-            
+        {
+            ccFireFighter *fireFighters = self.fireFighters[indexPath.row];
+            cell.textLabel.text = fireFighters.firstName;
+        }
             break;
         case 1:
+        {
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
             [cell.textLabel setTextColor:[UIColor whiteColor]];
             if (indexPath.section == 0) {
@@ -314,11 +322,14 @@ NSMutableArray *_objects;
             }else if (indexPath.section ==1){
                 cell.textLabel.text = [_considerations objectAtIndex:indexPath.row];
             }
+        }
             break;
         case 2:
+        {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
             cell.textLabel.text = @"Log";
             break;
+        }
         default:
             break;
     }

@@ -13,7 +13,7 @@
 - (void)fetchFireFighter
 {
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
-	NSString *URLString = @"muitclipboard.herokuapp.com/api/v1/auto_cad_data.json"; //not the real url, just placeholder
+	NSString *URLString = @"http://muitclipboard.herokuapp.com/api/v1/personnel_data"; //not the real url, just placeholder
 	NSURL *URL = [NSURL URLWithString:URLString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 	[NSURLConnection sendAsynchronousRequest:request queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -32,7 +32,7 @@
 		[arrayToSend addObject:instance];
 	}
 	
-	NSArray *finalArray = [NSArray arrayWithArray:arrayToSend];
+	NSMutableArray *finalArray = [NSMutableArray arrayWithArray:arrayToSend];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ccFireFightersDidParseNotification" object:self userInfo:@{@"fireFighters" : finalArray}];
 }
