@@ -7,6 +7,7 @@
 //
 
 #import "ccFireFighterProvider.h"
+#import "FMDatabase.h"
 
 @implementation ccFireFighterProvider
 
@@ -31,7 +32,10 @@
 		ccFireFighter *instance = [[ccFireFighter alloc] initWithDictionary:dictionary];
 		[arrayToSend addObject:instance];
 	}
-	
+    
+    //Here we will no longer send an array via NSNotificationCenter. Instead we will query the sqlite3 db for a list of all firefighters.
+    //Instead of NSMutableArray, we'll just put all the fire fighters in the DB one by onein the for(NSDictionary *dictionary in arrayFromData
+    
 	NSMutableArray *finalArray = [NSMutableArray arrayWithArray:arrayToSend];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"ccFireFightersDidParseNotification" object:self userInfo:@{@"fireFighters" : finalArray}];
