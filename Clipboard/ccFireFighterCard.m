@@ -1,14 +1,14 @@
 //
-//  ccCrewNotes.m
+//  ccFireFighterCard.m
 //  Clipboard
 //
-//  Created by William Cleeton on 4/29/13.
+//  Created by William Cleeton on 5/7/13.
 //  Copyright (c) 2013 muit. All rights reserved.
 //
 
-#import "ccCrewNotes.h"
+#import "ccFireFighterCard.h"
 
-@implementation ccCrewNotes
+@implementation ccFireFighterCard
 
 - (id)initWithFrame:(CGRect)frame
 {

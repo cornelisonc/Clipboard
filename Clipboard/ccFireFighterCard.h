@@ -1,13 +1,13 @@
 //
-//  ccCrewNotes.h
+//  ccFireFighterCard.h
 //  Clipboard
 //
-//  Created by William Cleeton on 4/29/13.
+//  Created by William Cleeton on 5/7/13.
 //  Copyright (c) 2013 muit. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ccCrewNotes : UIView
+@interface ccFireFighterCard : UIView
 
 @end

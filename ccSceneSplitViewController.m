@@ -215,10 +215,8 @@ NSMutableArray *_objects;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"section %i", self.segmentedControl.selectedSegmentIndex);
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            NSLog(@"fireFighters %i", _fireFighters.count);
             return _fireFighters.count;
             break;
         case 1:
