@@ -79,8 +79,6 @@
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
    return  _logoImageView.frame.size.height;
-
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -95,8 +93,6 @@
     return self.fireInstance.count;
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //tell the tableview to provide us with a resuable table cell.
@@ -109,7 +105,6 @@
     
     //configure the cell
     if (indexPath == 0) {
-        cell.timeLabel.text = [NSString stringWithFormat:@"TIME"];
         cell.incidentLabel.text = [NSString stringWithFormat:@"INCIDENT"];
         cell.timeLabel.text = [NSString stringWithFormat:@"TIME"];
         cell.locationLabel.text = [NSString stringWithFormat:@"LOCATION"];

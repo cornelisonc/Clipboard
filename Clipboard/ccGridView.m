@@ -33,7 +33,6 @@ float kLabelWidth;
         //set background color of the view.
         [self setBackgroundColor:[UIColor redColor]];
         mediumLabelWidth = self.frame.size.width/6;
-        NSLog(@"medium width %f ", mediumLabelWidth);
         smallLabelWidth = (mediumLabelWidth / 2) - 2.5;
         largeLabelWidth = (2 * mediumLabelWidth) - 2.5;
         mediumLabelWidth = mediumLabelWidth - 2.5;
@@ -123,7 +122,6 @@ float kLabelWidth;
         labelRect.origin = labelOrigin;
         labelRect.size = labelSize;
         
-        _timerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _timerLabel = [[UILabel alloc] initWithFrame:labelRect];
         [_timerLabel setFrame:labelRect];
         [_timerLabel setText:@"Timer"];
