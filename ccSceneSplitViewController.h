@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ccFireFighterProvider.h"
+#import "ccFireFighterCardViewController.h"
 
 @class ccDetailViewController;
 @class ccSelectSceneViewController;
@@ -16,6 +17,7 @@
 
 @property (nonatomic, strong) ccDetailViewController *detailViewController;
 @property (nonatomic, strong) ccSelectSceneViewController *selectSceneViewController;
+@property (nonatomic, strong) ccFireFighterCardViewController *fireFighterCardViewController;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UIBarButtonItem *selectSceneButton;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
