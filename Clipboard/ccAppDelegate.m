@@ -64,18 +64,4 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-//This method was added to create the sqlite3 DB for use in the project
--(void)applicationDidFinishLaunching:(UIApplication *)application
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsPath = [paths objectAtIndex:0];
-    NSString *path = [docsPath stringByAppendingPathComponent:@"database.sqlite"];
-    
-    FMDatabase *database = [FMDatabase databaseWithPath:path];
-    [database open];
-    [database executeUpdate:@"create table fireFighters(fireFighterID string primary key, appop string, colorCode string, DOB string, DOB_B string, email string, FF1 string, FF2 string, fireInspect string, fireInv string, fireInvest string, firstName string, middleName string, lastName string, hazMatAW string, hazMatOps string, hazMatTech string, instruct1 string, instruct2 string, is100 string, is200 string, is300 string, is 300 string, is400 string, is700 string, is800 string, motf1 string, motf1_POS string, officer1 string, officer2 string, pName string, phone string, photo string, rank string, staffID string, station string, station_B string, status string, status_B string, vehRescue string)"];
-    
-}
-
 @end

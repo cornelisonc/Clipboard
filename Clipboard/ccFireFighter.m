@@ -61,5 +61,48 @@
     return self;
 }
 
+-(void)encodeWithEncoder:(NSCoder *)coder
+{
+    [coder encodeObject:_appop forKey:@"Appop"];
+    [coder encodeObject:_colorCode forKey:@"ColorCode"];
+    [coder encodeObject:_DOB forKey:@"DOB"];
+    [coder encodeObject:_DOB_B forKey:@"DOB_B"];
+    [coder encodeObject:_email forKey:@"email"];
+    [coder encodeObject:_FF1 forKey:@"FF1"];
+    [coder encodeObject:_FF2 forKey:@"FF2"];
+    [coder encodeObject:_fireFighterID forKey:@"FireInspect"];
+    [coder encodeObject:_fireInv forKey:@"FireInv"];
+    [coder encodeObject:_fireInvest forKey:@"FireInvest"];
+    [coder encodeObject:_hazMatAW forKey:@"HazMatAw"];
+    [coder encodeObject:_hazMatOps forKey:@"HazMatOps"];
+    [coder encodeObject:_hazMatTech forKey:@"HazMatTech"];
+    [coder encodeObject:_instruct1 forKey:@"Instruct1"];
+    [coder encodeObject:_instruct2 forKey:@"Instruct2"];
+    [coder encodeObject:_is100 forKey:@"Is100"];
+    [coder encodeObject:_is200 forKey:@"Is200"];
+    [coder encodeObject:_is300 forKey:@"Is300"];
+    [coder encodeObject:_is400 forKey:@"Is400"];
+    [coder encodeObject:_is700 forKey:@"Is700"];
+    [coder encodeObject:_is800 forKey:@"Is800"];
+    [coder encodeObject:_firstName forKey:@"FirstName"];
+    [coder encodeObject:_middleName forKey:@"MiddleName"];
+    [coder encodeObject:_lastName forKey:@"LastName"];
+    [coder encodeObject:_motf1 forKey:@"Motf1"];
+    [coder encodeObject:_motf1_POS forKey:@"Motf1_POS"];
+    [coder encodeObject:_officer1 forKey:@"Officer1"];
+    [coder encodeObject:_officer2 forKey:@"Officer2"];
+    [coder encodeObject:_pName forKey:@"PName"];
+    [coder encodeObject:_phone forKey:@"Phone"];
+    [coder encodeObject:_photo forKey:@"Photo"];
+    [coder encodeObject:_rank forKey:@"Photo"];
+    [coder encodeObject:_staffID forKey:@"StaffID"];
+    [coder encodeObject:_station forKey:@"Station"];
+    [coder encodeObject:_station_B forKey:@"Station_B"];
+    [coder encodeObject:_status forKey:@"Status"];
+    [coder encodeObject:_status_B forKey:@"Status_B"];
+    [coder encodeObject:_vehRescue forKey:@"VehRescue"];
+    [coder encodeObject:_fireFighterID forKey:@"id"];
+}
+
 
 @end

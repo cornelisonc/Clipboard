@@ -24,6 +24,14 @@
 
 - (void)parseInstanceWithData:(NSData *)data
 {
+    /*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsPath = [paths objectAtIndex:0];
+    NSString *path = [docsPath stringByAppendingPathComponent:@"database.sqlite"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:path];*/
+    
+    
+    
 	NSArray *arrayFromData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 	
 	
@@ -31,6 +39,7 @@
     for (NSDictionary *dictionary in arrayFromData) {
 		ccFireFighter *instance = [[ccFireFighter alloc] initWithDictionary:dictionary];
 		[arrayToSend addObject:instance];
+        
 	}
     
     //Here we will no longer send an array via NSNotificationCenter. Instead we will query the sqlite3 db for a list of all firefighters.
