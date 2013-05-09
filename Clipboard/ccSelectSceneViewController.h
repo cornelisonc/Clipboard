@@ -10,9 +10,7 @@
 #import "ccSelectSceneCell.h"
 #import "ccSelectSceneView.h"
 #import "ccSceneSplitViewController.h"
-//#import "ccFireInstance.h"
 #import "ccInstanceProvider.h"
-#import "ccDetailViewController.h"
 #import "ccFireFighterProvider.h"
 
 

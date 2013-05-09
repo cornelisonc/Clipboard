@@ -10,7 +10,6 @@
 #import "ccGridView.h"
 #import "ccDetailViewController.h"
 #import "ccSelectSceneViewController.h"
-#import "ccParCheckViewController.h"
 #import "ccSceneSplitViewController.h"
 
 @interface ccSceneSplitViewController ()
@@ -48,9 +47,15 @@ NSMutableArray *_objects;
         tableView.delegate = self;
         tableView.dataSource = self;
         
-    [tableView setBackgroundColor:[UIColor grayColor]];
+        [tableView setBackgroundColor:[UIColor grayColor]];
         
         self.view = tableView;
+        
+        ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
+        self.selectSceneViewController = selectSceneViewController;
+        
+        ccFireFighterCardViewController *fireFighterCardViewController = [[ccFireFighterCardViewController alloc] init];
+        self.fireFighterCardViewController = fireFighterCardViewController;
         //[tableView reloadData];
     }
     return self;
@@ -77,10 +82,6 @@ NSMutableArray *_objects;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self initButtons];
-    
-    ccSelectSceneViewController *selectSceneViewController =  [[ccSelectSceneViewController alloc] init];
-    self.selectSceneViewController = selectSceneViewController;
-    
 
     [self.navigationController setToolbarHidden:NO];
     
@@ -88,7 +89,6 @@ NSMutableArray *_objects;
     [self initConsiderations];
     [self initSegmentControl];
     
-
     [_segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
 
 }
@@ -180,8 +180,7 @@ NSMutableArray *_objects;
 
 - (void)parButtonPressed:(id)sender
 {
-    ccParCheckViewController *parCheckViewController = [[ccParCheckViewController alloc] init];
-    [self presentViewController:parCheckViewController animated:YES completion:nil];
+
     
 }
 
@@ -307,6 +306,8 @@ NSMutableArray *_objects;
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
         {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [cell.textLabel setTextColor:[UIColor blackColor]];
             ccFireFighter *fireFighters = self.fireFighters[indexPath.row];
             
             NSString *cellText = fireFighters.lastName;
@@ -329,6 +330,7 @@ NSMutableArray *_objects;
         case 2:
         {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [cell.textLabel setTextColor:[UIColor blackColor]];
             cell.textLabel.text = @"Log";
             break;
         }
@@ -367,7 +369,7 @@ NSMutableArray *_objects;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [self.navigationController presentViewController:_fireFighterCardViewController animated:YES completion:nil];
 }
 
 

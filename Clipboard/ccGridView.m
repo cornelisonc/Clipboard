@@ -122,7 +122,6 @@ float kLabelWidth;
         labelRect.origin = labelOrigin;
         labelRect.size = labelSize;
         
-        _timerLabel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _timerLabel = [[UILabel alloc] initWithFrame:labelRect];
         [_timerLabel setFrame:labelRect];
         [_timerLabel setText:@"Timer"];

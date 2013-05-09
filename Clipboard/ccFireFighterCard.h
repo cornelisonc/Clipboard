@@ -10,4 +10,10 @@
 
 @interface ccFireFighterCard : UIView
 
+@property (nonatomic, strong) UIImageView *photo;
+@property (nonatomic, strong) UILabel *crewLabel;
+@property (nonatomic, strong) UILabel *taskLabel;
+@property (nonatomic, strong) UILabel *numberOfPeopleLabel;
+
+
 @end
